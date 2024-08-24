@@ -122,7 +122,7 @@ export function Profile() {
   )
 }
 
-function CalendarDaysIcon(props) {
+function CalendarDaysIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
