@@ -17,13 +17,29 @@ To read more about using these font, please visit the Next.js documentation:
 - App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
+"use client";
+
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import useAuthStore from '@/app/stores/useAuthStore';
+import { useState } from 'react';
 
 export function Register() {
+  const { register, isAuthenticated } = useAuthStore();
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await register(email, password, name, lastName);
+  };
+
   return (
     <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -40,7 +56,7 @@ export function Register() {
         </div>
         <Card>
           <CardContent className="space-y-6 px-6 py-8">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <Label htmlFor="name" className="block text-sm font-medium text-foreground">
                   Name
@@ -48,8 +64,9 @@ export function Register() {
                 <div className="mt-1">
                   <Input
                     id="name"
-                    name="name"
                     type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     autoComplete="name"
                     required
                     className="block w-full rounded-md border-input bg-background px-3 py-2 text-foreground shadow-sm focus:border-primary focus:ring-primary"
@@ -65,6 +82,8 @@ export function Register() {
                     id="email"
                     name="email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     autoComplete="email"
                     required
                     className="block w-full rounded-md border-input bg-background px-3 py-2 text-foreground shadow-sm focus:border-primary focus:ring-primary"
@@ -80,6 +99,8 @@ export function Register() {
                     id="password"
                     name="password"
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     autoComplete="new-password"
                     required
                     className="block w-full rounded-md border-input bg-background px-3 py-2 text-foreground shadow-sm focus:border-primary focus:ring-primary"
@@ -94,6 +115,8 @@ export function Register() {
                   <Input
                     id="confirm-password"
                     name="confirm-password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     type="password"
                     autoComplete="new-password"
                     required
