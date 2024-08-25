@@ -30,15 +30,15 @@ const useAuthStore = create((set) => ({
   login: async (email, password) => {
     try {
       const response = await axios.post('/auth/login', { email, password });
-      const { user, token } = response.data;
+      const { user, access_token } = response.data;
 
       set({
         user,
-        token,
+        token: access_token,
         isAuthenticated: true,
       });
 
-      localStorage.setItem('token', token);
+      localStorage.setItem('token', access_token);
     } catch (error) {
       console.error('Login failed:', error);
     }
