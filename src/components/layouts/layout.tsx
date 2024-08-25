@@ -1,7 +1,8 @@
+"use client";
+
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { Navbar } from "@/components/component/navbar/navbar";
-import { Toaster } from "@/components/ui/toaster"
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +16,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <Navbar />
         <main>{children}</main>
-        <Toaster />
       </body>
     </html>
   );
