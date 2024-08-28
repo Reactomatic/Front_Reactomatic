@@ -1,0 +1,26 @@
+{
+  "processeur": [
+    {"id": "cpu1", "name": "Ryzen 5 3600X", "price": 579, "description": "Meilleur processeur du monde entier"},
+    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
+    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
+    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
+    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
+    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"}
+  ],
+  "carte graphique": [
+    {"id": "gpu1", "name": "RTX 3060 Asus Ventus", "price": 659, "description": "Carte graphique performante pour le gaming"},
+    {"id": "gpu2", "name": "AMD Radeon RX 6700 XT", "price": 729, "description": "Excellente carte graphique pour le ray tracing"}
+  ],
+  "ram": [
+    {"id": "ram1", "name": "16GB RAM Corsair (8 x 2)", "price": 279, "description": "Mémoire rapide et fiable pour votre système"}
+  ],
+  "stockage": [
+    {"id": "storage1", "name": "SSD 2To NVMe", "price": 399, "description": "Stockage ultra-rapide pour des temps de chargement minimaux"}
+  ],
+  "boitié": [
+    {"id": "case1", "name": "Boitier LianLi L100", "price": 189, "description": "Boîtier élégant avec une excellente gestion des câbles"}
+  ],
+  "alimentation": [
+    {"id": "psu1", "name": "Alimentation 750W Gold", "price": 159, "description": "Alimentation fiable et efficace pour votre configuration"}
+  ]
+}
