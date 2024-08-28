@@ -1,10 +1,9 @@
-import Image from "next/image";
-import {ComponentList} from "@/components/component/component-list";
+import {ComponentList} from "@/components/component/componentList/component-list";
 
 export default function ComponentPage() {
   return (
       <div>
-        <ComponentList />
+          <ComponentList />
       </div>
 
   );
