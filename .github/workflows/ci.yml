@@ -46,4 +46,4 @@ jobs:
         context: .
         file: ./Dockerfile.ci
         push: true
-        tags: ghcr.io/${{ env.REPO_NAME }}/${{ env.BRANCH_NAME }}:${{ env.SHORT_SHA }}
+        tags: ghcr.io/${{ env.REPO_NAME }}/${{ env.BRANCH_NAME }}:latest
