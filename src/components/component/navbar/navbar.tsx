@@ -31,8 +31,11 @@ export function Navbar() {
           <Package2Icon className="w-6 h-6" />
           <span>Reactomatic</span>
         </Link>
-        <Link href="/components" className="text-muted-foreground" prefetch={false}>
-          Composants
+        <Link href="/configurations" className="text-muted-foreground" prefetch={false}>
+          Voir mes configurations
+        </Link>
+        <Link href="/configuration" className="text-muted-foreground" prefetch={false}>
+          Configuration
         </Link>
       </nav>
       <div className="flex items-center gap-4">

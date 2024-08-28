@@ -27,6 +27,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import { JSX, SVGProps } from "react";
 
 export function Home() {
   return (
@@ -36,7 +37,8 @@ export function Home() {
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
               <div className="flex flex-col justify-center">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-4">Construit ton PC sur mesure</h1>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-4">Construit ton PC sur
+                  mesure</h1>
                 <p className="text-lg md:text-xl lg:text-2xl text-white mb-8">
                   Personnalisez le PC de vos rêves avec notre constructeur facile à utiliser.
                 </p>
@@ -97,7 +99,8 @@ export function Home() {
               </div>
               <div className="flex flex-col justify-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Découvrez votre construction</h2>
-                <p className="text-muted-foreground mb-8">Prévisualisez votre configuration PC personnalisée avant de commander.</p>
+                <p className="text-muted-foreground mb-8">Prévisualisez votre configuration PC personnalisée avant de
+                  commander.</p>
                 <Link
                   href="#"
                   className="inline-flex items-center justify-center bg-[#1e3a8a] text-white font-medium rounded-md py-3 px-6 hover:bg-[#3b82f6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1e3a8a] focus-visible:ring-opacity-75"
@@ -114,7 +117,8 @@ export function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
               <div className="flex flex-col justify-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Commencer</h2>
-                <p className="text-muted-foreground mb-8">Remplissez le formulaire pour commencer la construction de votre PC personnalisé.</p>
+                <p className="text-muted-foreground mb-8">Remplissez le formulaire pour commencer la construction de
+                  votre PC personnalisé.</p>
                 <form className="space-y-4">
                   <div>
                     <Label htmlFor="name">Name</Label>
@@ -147,6 +151,7 @@ export function Home() {
           </div>
         </section>
       </main>
+
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">&copy; 2024 Reactomatic, All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
@@ -162,7 +167,7 @@ export function Home() {
   )
 }
 
-function CpuIcon(props) {
+function CpuIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -191,7 +196,7 @@ function CpuIcon(props) {
 }
 
 
-function MemoryStickIcon(props) {
+function MemoryStickIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
