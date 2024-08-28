@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useConfig } from "@/context/ConfigContext";
-import { ComponentPopup } from "@/components/component/component-popup/ComponentPopup";
+import { ComponentPopup } from "@/components/component/component/component-popup/ComponentPopup";
 import { PCComponentType, Component as ComponentModel } from "@/type";
 
 export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => {
@@ -30,8 +30,8 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className="lucide lucide-circle-minus h-7 w-7 bg-orange rounded-md cursor-pointer text-white p-1 shadow-xl">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M8 12h8"/>
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M8 12h8" />
                         </svg>
                     </button>
                 )}
@@ -48,10 +48,10 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                     onClick={() => setIsPopupOpen(true)}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
-                         className="lucide lucide-circle-minus h-10 w-10 bg-green rounded-md cursor-pointer text-white p-1 shadow-xl">
-                        <path d="M5 12h14"/>
-                        <path d="M12 5v14"/>
+                        stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+                        className="lucide lucide-circle-minus h-10 w-10 bg-green rounded-md cursor-pointer text-white p-1 shadow-xl">
+                        <path d="M5 12h14" />
+                        <path d="M12 5v14" />
                     </svg>
                 </button>
             )}

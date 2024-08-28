@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentCard } from "@/components/component/card/ComponentCard";
+import { ComponentCard } from "@/components/component/component/card/ComponentCard";
 import { PCComponentType } from "@/type";
 
 export const ComponentListCreation: React.FC = () => {
