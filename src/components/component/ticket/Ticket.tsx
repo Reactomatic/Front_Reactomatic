@@ -1,28 +1,28 @@
-import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
+"use client"
+
+import React from 'react';
+import { useConfig } from "@/context/ConfigContext";
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
+import {Component} from "@/type";
 
 export default function Ticket() {
-    const items = [
-        { description: "Ryzen 5 3600X", price: 450 },
-        { description: "Macbook Pro M2", price: 4000 },
-        { description: "Microsoft ZenBook", price: 2 },
-        { description: "PC Windows", price: 0 },
-        { description: "Samsung Galaxy A5 Android", price: 0 },
-        { description: "Airpods Max", price: 629 },
-        { description: "Carte Mère Azus B450", price: 199.98 },
-    ]
+    const { config, getTotalPrice } = useConfig();
 
-    const total = items.reduce((sum, item) => sum + item.price, 0)
+    const selectedItems = Object.values(config).filter((item): item is Component => !!item);
+
+    const total = getTotalPrice();
     const date = new Date().toLocaleDateString('fr-FR', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
     });
+
     return (
         <Card className="flex justify-center content-center flex-col w-80 mx-auto font-mono text-sm">
-            <CardHeader className="flex items-center text-center border-b border-dashed border-gray-300">
+            <CardHeader className="flex flex-col items-center text-center border-b border-dashed border-gray-300">
                 <div className="text-xs">{'*'.repeat(38)}</div>
                 <h2 className="text-xl font-bold">REÇU</h2>
-                <p className={"text-xs font-extralight"}>Ne fait pas office de reçu officel</p>
+                <p className="text-xs font-extralight">Ne fait pas office de reçu officel</p>
                 <div className="text-xs">{'*'.repeat(38)}</div>
             </CardHeader>
             <CardContent className="p-4 space-y-4">
@@ -36,9 +36,9 @@ export default function Ticket() {
                         <span>Description</span>
                         <span>Price</span>
                     </div>
-                    {items.map((item, index) => (
+                    {selectedItems.map((item, index) => (
                         <div key={index} className="flex justify-between">
-                            <span>{item.description}</span>
+                            <span>{item.name}</span>
                             <span>${item.price.toFixed(2)}</span>
                         </div>
                     ))}
@@ -59,5 +59,5 @@ export default function Ticket() {
                 <div className="text-xs">123456778963578021</div>
             </CardFooter>
         </Card>
-    )
+    );
 }

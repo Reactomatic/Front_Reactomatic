@@ -1,14 +1,14 @@
 "use client";
 
 import React, { createContext, useState, useContext } from 'react';
-import { Component, PCComponentType, Config, ConfigContextType } from "@/type";
+import {Component, ComponentType, Config, ConfigContextType} from "@/type";
 
 const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
 
 export const ConfigProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [config, setConfig] = useState<Config>({});
 
-    const setComponentSelection = (type: PCComponentType, component: Component | undefined) => {
+    const setComponentSelection = (type: ComponentType, component: Component | undefined) => {
         setConfig(prev => ({ ...prev, [type]: component }));
     };
 
