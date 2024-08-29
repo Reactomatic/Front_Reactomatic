@@ -37,8 +37,8 @@ export default function Ticket() {
                         <span>Price</span>
                     </div>
                     {selectedItems.map((item, index) => (
-                        <div key={index} className="flex justify-between">
-                            <span>{item.name}</span>
+                        <div key={index} className="flex justify-between space-x-2">
+                            <span className="whitespace-nowrap overflow-hidden">{item.name}</span>
                             <span>${item.price.toFixed(2)}</span>
                         </div>
                     ))}
@@ -53,7 +53,7 @@ export default function Ticket() {
                 </div>
             </CardContent>
             <CardFooter className="flex flex-col items-center space-y-4">
-                <div className="font-bold">THANK YOU</div>
+                <div className="font-bold pt-10">THANK YOU</div>
                 <div className="text-xs">{'*'.repeat(38)}</div>
                 <div className="w-full h-12 bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==')]"></div>
                 <div className="text-xs">123456778963578021</div>

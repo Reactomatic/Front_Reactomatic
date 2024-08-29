@@ -2,25 +2,41 @@
   "processeur": [
     {"id": "cpu1", "name": "Ryzen 5 3600X", "price": 579, "description": "Meilleur processeur du monde entier"},
     {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
-    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
-    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
-    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"},
-    {"id": "cpu2", "name": "Intel Core i7-10700K", "price": 699, "description": "Processeur haute performance pour les jeux"}
+    {"id": "cpu3", "name": "Ryzen 9 5900X", "price": 999, "description": "Processeur ultra-rapide pour les créateurs de contenu"}
   ],
   "carte graphique": [
     {"id": "gpu1", "name": "RTX 3060 Asus Ventus", "price": 659, "description": "Carte graphique performante pour le gaming"},
-    {"id": "gpu2", "name": "AMD Radeon RX 6700 XT", "price": 729, "description": "Excellente carte graphique pour le ray tracing"}
+    {"id": "gpu2", "name": "AMD Radeon RX 6700 XT", "price": 729, "description": "Excellente carte graphique pour le ray tracing"},
+    {"id": "gpu3", "name": "RTX 3080 Ti", "price": 1299, "description": "Carte graphique de pointe pour les jeux en 4K"},
+    {"id": "gpu4", "name": "AMD Radeon RX 6900 XT", "price": 1399, "description": "Carte graphique ultime pour les performances extrêmes"}
   ],
   "ram": [
-    {"id": "ram1", "name": "16GB RAM Corsair (8 x 2)", "price": 279, "description": "Mémoire rapide et fiable pour votre système"}
+    {"id": "ram1", "name": "16GB RAM Corsair (8 x 2)", "price": 279, "description": "Mémoire rapide et fiable pour votre système"},
+    {"id": "ram2", "name": "32GB RAM G.Skill Trident Z RGB", "price": 459, "description": "Mémoire haute performance avec éclairage RGB"},
+    {"id": "ram3", "name": "64GB RAM Kingston Fury", "price": 799, "description": "Mémoire de grande capacité pour les applications lourdes"}
   ],
   "stockage": [
-    {"id": "storage1", "name": "SSD 2To NVMe", "price": 399, "description": "Stockage ultra-rapide pour des temps de chargement minimaux"}
+    {"id": "storage1", "name": "SSD 2To NVMe", "price": 399, "description": "Stockage ultra-rapide pour des temps de chargement minimaux"},
+    {"id": "storage2", "name": "HDD 4To Seagate", "price": 199, "description": "Grande capacité de stockage pour tous vos fichiers"},
+    {"id": "storage3", "name": "SSD 1To Samsung 970 Evo", "price": 299, "description": "SSD rapide et fiable pour une performance quotidienne"},
+    {"id": "storage4", "name": "SSD 500GB Crucial", "price": 149, "description": "Stockage abordable pour les systèmes de base"}
   ],
   "boitié": [
-    {"id": "case1", "name": "Boitier LianLi L100", "price": 189, "description": "Boîtier élégant avec une excellente gestion des câbles"}
+    {"id": "case1", "name": "Boitier LianLi L100", "price": 189, "description": "Boîtier élégant avec une excellente gestion des câbles"},
+    {"id": "case2", "name": "Boitier NZXT H510", "price": 109, "description": "Boîtier compact avec un design minimaliste"},
+    {"id": "case3", "name": "Boitier Corsair 4000D", "price": 129, "description": "Boîtier spacieux avec un flux d'air optimal"},
+    {"id": "case4", "name": "Boitier Fractal Design Meshify C", "price": 149, "description": "Boîtier performant avec une excellente ventilation"}
   ],
   "alimentation": [
-    {"id": "psu1", "name": "Alimentation 750W Gold", "price": 159, "description": "Alimentation fiable et efficace pour votre configuration"}
+    {"id": "psu1", "name": "Alimentation 750W Gold", "price": 159, "description": "Alimentation fiable et efficace pour votre configuration"},
+    {"id": "psu2", "name": "Alimentation 850W Platinum", "price": 199, "description": "Alimentation premium pour les systèmes haute performance"},
+    {"id": "psu3", "name": "Alimentation 650W Bronze", "price": 129, "description": "Alimentation abordable pour les configurations de base"},
+    {"id": "psu4", "name": "Alimentation 1000W Titanium", "price": 299, "description": "Alimentation ultra-haute efficacité pour les configurations extrêmes"}
+  ],
+  "carte mère": [
+    {"id": "mb1", "name": "ASUS ROG Strix B550-F", "price": 249, "description": "Carte mère gaming avec support PCIe 4.0"},
+    {"id": "mb2", "name": "MSI MPG Z490 Gaming Edge", "price": 299, "description": "Carte mère ATX avec un design élégant et performant"},
+    {"id": "mb3", "name": "Gigabyte AORUS X570 Master", "price": 399, "description": "Carte mère haute performance avec support multi-GPU"},
+    {"id": "mb4", "name": "ASRock B450M Pro4", "price": 149, "description": "Carte mère micro-ATX fiable pour les configurations compactes"}
   ]
 }

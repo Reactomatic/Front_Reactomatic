@@ -5,7 +5,7 @@ export type Component = {
     description: string;
 };
 
-export type ComponentType = 'processeur' | 'carte graphique' | 'ram' | 'stockage' | 'boitié' | 'alimentation';
+export type ComponentType = 'processeur' | 'carte mère' | 'carte graphique' | 'ram' | 'stockage' | 'boitié' | 'alimentation' | '2nd stockage';
 
 export type Config = {
     [key in ComponentType]?: Component;
@@ -17,5 +17,5 @@ export type ConfigContextType = {
     getTotalPrice: () => number;
 };
 
-export type PCComponentType = 'processeur' | 'carte graphique' | 'ram' | 'stockage' | 'boitié' | 'alimentation';
+export type PCComponentType = 'processeur' | 'carte mère' | 'carte graphique' | 'ram' | 'stockage' | 'boitié' | 'alimentation' | '2nd stockage';
 

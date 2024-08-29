@@ -40,7 +40,9 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                 <>
                     <p className="font-medium">{selectedComponent.name}</p>
                     <p className="text-sm text-gray-600">{selectedComponent.description}</p>
-                    <p className="mt-2 font-bold">{selectedComponent.price} €</p>
+                    <div className={"grid grid-cols-3 gap-2"}>
+                        <p className=" text-center mt-2 font-bold bg-black text-white rounded-md">{selectedComponent.price}€</p>
+                    </div>
                 </>
             ) : (
                 <button
