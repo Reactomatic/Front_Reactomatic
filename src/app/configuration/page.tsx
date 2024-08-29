@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { Login } from "@/components/component/auth/login/login";
 import { ConfigProvider } from "@/context/ConfigContext";
 import Ticket from "@/components/component/ticket/Ticket";
 import { ComponentListCreation } from "@/components/component/component/component-list/ComponentListCreation";
