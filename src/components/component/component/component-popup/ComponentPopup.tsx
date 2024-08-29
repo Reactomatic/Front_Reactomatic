@@ -20,7 +20,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center">
-            <div className="relative bg-white rounded-lg p-4 max-w-md w-full">
+            <div className="relative bg-white rounded-lg p-4 max-w-md w-full min-h-[50vh]">
                 <Button
                     variant={"destructive"}
                     onClick={onClose}
@@ -44,7 +44,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
 
-                <div className="max-h-96 overflow-y-auto">
+                <div className="max-h-96 overflow-y-auto min-h-[50vh]">
                     {filteredComponents.map((component: Component) => (
                         <div
                             key={component.id}

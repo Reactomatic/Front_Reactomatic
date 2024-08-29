@@ -7,8 +7,8 @@ import { ComponentListCreation } from "@/components/component/component/componen
 export default function ConfigurationPage() {
   return (
     <ConfigProvider>
-      <div className="container mx-auto mt-8 p-4">
-        <div className="flex flex-col md:flex-row gap-6">
+      <div className="container mx-auto h-full mt-8 p-4">
+        <div className="flex flex-col h-full md:flex-row gap-6">
           <div className="w-full md:w-2/3">
             <ComponentListCreation />
           </div>

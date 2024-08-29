@@ -18,14 +18,14 @@ export default function Ticket() {
     });
 
     return (
-        <Card className="flex justify-center content-center flex-col w-80 mx-auto font-mono text-sm">
+        <Card className="flex justify-center content-center flex-col w-80 h-[80vh] mx-auto font-mono text-sm">
             <CardHeader className="flex flex-col items-center text-center border-b border-dashed border-gray-300">
                 <div className="text-xs">{'*'.repeat(38)}</div>
                 <h2 className="text-xl font-bold">REÇU</h2>
                 <p className="text-xs font-extralight">Ne fait pas office de reçu officel</p>
                 <div className="text-xs">{'*'.repeat(38)}</div>
             </CardHeader>
-            <CardContent className="p-4 space-y-4">
+            <CardContent className="p-4 space-y-4 h-[40vh]">
                 <h3 className="text-center font-bold">REACTOMATIC</h3>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                     <span>Date:</span>
