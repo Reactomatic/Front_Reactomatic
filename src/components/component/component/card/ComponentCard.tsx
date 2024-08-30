@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import { useConfig } from "@/context/ConfigContext";
 import { ComponentPopup } from "@/components/component/component/component-popup/ComponentPopup";
 import { PCComponentType, Component as ComponentModel, PriceProvider } from "@/type";
-import Amazon from '@/assets/images/amazon.png'
-import Ldlc from '@/assets/images/ldlc.png'
-import Material from '@/assets/images/material.png'
+import Amazon from '@/assets/images/amazon-removebg-preview.png'
+import Ldlc from '@/assets/images/ldlc-removebg-preview.png'
+import Material from '@/assets/images/material-removebg-preview.png'
 import Image from "next/image";
 
 export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => {
@@ -17,7 +17,7 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
     const renderProviderPrice = (pricesByProvider: PriceProvider[]) => {
         return pricesByProvider.map(({ provider, price }) => (
                 <div key={provider}
-                     className="grid grid-cols-2 place-items-center bg-black text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md space-x-0.5">
+                     className="grid grid-cols-2 place-items-center bg-neutral-800 text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md space-x-0.5">
                     {provider === "Amazon" && (
                         <Image
                             priority
@@ -41,8 +41,8 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                         <Image
                             priority
                             src={Material}
-                            height={32}
-                            width={32}
+                            height={25}
+                            width={25}
                             alt="Follow us on Twitter"
                             className={""}
                         />   )}
