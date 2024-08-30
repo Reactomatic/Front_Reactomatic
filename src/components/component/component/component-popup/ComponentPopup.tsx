@@ -20,7 +20,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center">
-            <div className="relative bg-white rounded-lg p-4 max-w-md w-full min-h-[50vh]">
+            <div className="relative bg-white dark:bg-neutral-900 rounded-lg p-4 max-w-md w-full min-h-[50vh]">
                 <Button
                     variant={"destructive"}
                     onClick={onClose}
@@ -39,7 +39,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                 <input
                     type="text"
                     placeholder="Rechercher..."
-                    className="mb-4 p-2 border border-gray-300 rounded-lg w-full"
+                    className="mb-4 p-2 border border-gray-300 rounded-lg w-full dark:bg-neutral-900 dark:border-neutral-700"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -48,7 +48,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                     {filteredComponents.map((component: Component) => (
                         <div
                             key={component.id}
-                            className="border border-gray-300 rounded-lg mb-4 p-4 cursor-pointer hover:bg-gray-100"
+                            className="border border-gray-300 rounded-lg mb-4 p-4 cursor-pointer hover:bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700"
                             onClick={() => onSelect(component)}
                         >
                             <p className="font-medium">{component.name}</p>

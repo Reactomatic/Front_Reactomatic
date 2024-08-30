@@ -1,17 +1,60 @@
-"use client";
+"use client"
 
 import React, { useState } from 'react';
 import { useConfig } from "@/context/ConfigContext";
 import { ComponentPopup } from "@/components/component/component/component-popup/ComponentPopup";
-import { PCComponentType, Component as ComponentModel } from "@/type";
+import { PCComponentType, Component as ComponentModel, PriceProvider } from "@/type";
+import Amazon from '@/assets/images/amazon.png'
+import Ldlc from '@/assets/images/ldlc.png'
+import Material from '@/assets/images/material.png'
+import Image from "next/image";
 
 export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const { config, setComponentSelection } = useConfig();
     const selectedComponent = config[type];
 
+    const renderProviderPrice = (pricesByProvider: PriceProvider[]) => {
+        return pricesByProvider.map(({ provider, price }) => (
+                <div key={provider}
+                     className="grid grid-cols-2 place-items-center bg-black text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md space-x-0.5">
+                    {provider === "Amazon" && (
+                        <Image
+                            priority
+                            src={Amazon}
+                            height={30}
+                            width={30}
+                            alt="Follow us on Twitter"
+                            className={""}
+                        />
+                    )}
+                    {provider === "LDLC" && (
+                        <Image
+                            priority
+                            src={Ldlc}
+                            height={25}
+                            width={25}
+                            alt="Follow us on Twitter"
+                            className={""}
+                        />                )}
+                    {provider === "Materiel.net" && (
+                        <Image
+                            priority
+                            src={Material}
+                            height={37}
+                            width={37}
+                            alt="Follow us on Twitter"
+                            className={""}
+                        />   )}
+                    <span className="font-semibold text-md dark:text-white">{price}€</span>
+                </div>
+
+        ));
+    };
+
     return (
-        <div className="bg-white shadow-md rounded-lg p-4 min-h-56 border border-gray-300 dark:border-gray-700 dark:bg-gray-100">
+        <div
+            className="bg-white dark:bg-neutral-800 shadow-md rounded-lg p-4 min-h-56 border border-gray-300 dark:border-neutral-700">
             <div className="flex flex-row items-center justify-between w-full">
                 <h2 className="text-xl font-semibold mb-2 capitalize">{type}</h2>
                 {selectedComponent && (
@@ -21,8 +64,8 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="26"
-                            height="26"
+                            width="24"
+                            height="24"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -30,18 +73,17 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             className="lucide lucide-circle-minus h-7 w-7 bg-orange rounded-md cursor-pointer text-white p-1 shadow-xl">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M8 12h8" />
+                            <path d="M5 12h14"/>
                         </svg>
                     </button>
                 )}
             </div>
             {selectedComponent ? (
                 <>
-                    <p className="font-medium">{selectedComponent.name}</p>
-                    <p className="text-sm text-gray-600">{selectedComponent.description}</p>
-                    <div className={"grid grid-cols-3 gap-2"}>
-                        <p className=" text-center mt-2 font-bold bg-black text-white rounded-md">{selectedComponent.price}€</p>
+                    <p className="font-medium whitespace-nowrap">{selectedComponent.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-neutral-500 pt-1">{selectedComponent.description}</p>
+                    <div className={"grid grid-cols-2 gap-4 pt-4"}>
+                        {renderProviderPrice(selectedComponent.pricesByProvider)}
                     </div>
                 </>
             ) : (
@@ -50,8 +92,8 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                     onClick={() => setIsPopupOpen(true)}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
-                        className="lucide lucide-circle-minus h-10 w-10 bg-green rounded-md cursor-pointer text-white p-1 shadow-xl">
+                         stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+                         className="lucide lucide-circle-minus h-10 w-10 bg-green rounded-md cursor-pointer text-white p-1 shadow-xl">
                         <path d="M5 12h14" />
                         <path d="M12 5v14" />
                     </svg>

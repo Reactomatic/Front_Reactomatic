@@ -17,8 +17,9 @@ export default function Ticket() {
         year: 'numeric',
     });
 
+
     return (
-        <Card className="flex justify-center content-center flex-col w-80 h-[80vh] mx-auto font-mono text-sm">
+        <Card className="flex justify-center content-center flex-col w-80 h-full mx-auto font-mono text-sm shadow-md dark:bg-neutral-800 dark:border-neutral-700">
             <CardHeader className="flex flex-col items-center text-center border-b border-dashed border-gray-300">
                 <div className="text-xs">{'*'.repeat(38)}</div>
                 <h2 className="text-xl font-bold">REÇU</h2>
@@ -39,7 +40,7 @@ export default function Ticket() {
                     {selectedItems.map((item, index) => (
                         <div key={index} className="flex justify-between space-x-2">
                             <span className="whitespace-nowrap overflow-hidden">{item.name}</span>
-                            <span>${item.price.toFixed(2)}</span>
+                            <span>€{item.price.toFixed(2)}</span>
                         </div>
                     ))}
                 </div>
