@@ -22,8 +22,8 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                         <Image
                             priority
                             src={Amazon}
-                            height={30}
-                            width={30}
+                            height={25}
+                            width={25}
                             alt="Follow us on Twitter"
                             className={""}
                         />
@@ -32,8 +32,8 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                         <Image
                             priority
                             src={Ldlc}
-                            height={25}
-                            width={25}
+                            height={20}
+                            width={20}
                             alt="Follow us on Twitter"
                             className={""}
                         />                )}
@@ -41,8 +41,8 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                         <Image
                             priority
                             src={Material}
-                            height={37}
-                            width={37}
+                            height={32}
+                            width={32}
                             alt="Follow us on Twitter"
                             className={""}
                         />   )}
@@ -82,7 +82,7 @@ export const ComponentCard: React.FC<{ type: PCComponentType }> = ({ type }) => 
                 <>
                     <p className="font-medium whitespace-nowrap">{selectedComponent.name}</p>
                     <p className="text-sm text-gray-600 dark:text-neutral-500 pt-1">{selectedComponent.description}</p>
-                    <div className={"grid grid-cols-2 gap-4 pt-4"}>
+                    <div className={"grid grid-cols-2 gap-2 pt-2"}>
                         {renderProviderPrice(selectedComponent.pricesByProvider)}
                     </div>
                 </>
