@@ -110,7 +110,7 @@ export const TextHoverEffect = ({
               strokeDasharray: 1000,
             }}
             transition={{
-              duration: 2,
+              duration: 6,
               ease: "easeInOut",
             }}
         >
