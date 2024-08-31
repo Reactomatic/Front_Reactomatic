@@ -15,7 +15,7 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import useThemeStore from "@/app/stores/useThemeStore";
 
 export const Dock = () => {
-    const { darkMode, toggleDarkMode } = useThemeStore();
+    const {toggleDarkMode } = useThemeStore();
 
     const links = [
         {
@@ -73,7 +73,6 @@ export const Dock = () => {
                     onClick={toggleDarkMode}
                 />
             ),
-            href: "#",
         },
     ];
 
