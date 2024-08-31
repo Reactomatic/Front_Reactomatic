@@ -1,5 +1,18 @@
 import type { Config } from "tailwindcss";
-import { colors as defaultColors } from 'tailwindcss/defaultTheme';
+import defaultTheme from "tailwindcss/defaultTheme";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+
+// Fonction pour ajouter des variables CSS pour les couleurs
+function addVariablesForColors({ addBase, theme }: any) {
+    let allColors = flattenColorPalette(theme("colors"));
+    let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    );
+
+    addBase({
+        ":root": newVars,
+    });
+}
 
 const config: Config = {
     content: [
@@ -16,7 +29,7 @@ const config: Config = {
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
             colors: {
-                ...defaultColors,
+                ...defaultTheme.colors,
                 "border": "hsl(var(--border))",
                 "input": "hsl(var(--input))",
                 "ring": "hsl(var(--ring))",
@@ -80,7 +93,10 @@ const config: Config = {
             }
         }
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [
+        require("tailwindcss-animate"),
+        addVariablesForColors, // Ajout du plugin pour générer des variables CSS pour les couleurs
+    ],
 };
 
 export default config;
