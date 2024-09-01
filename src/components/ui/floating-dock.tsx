@@ -1,20 +1,19 @@
 "use client";
 
 import {
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconLayoutList,
-  IconMoonStars,
-  IconNewSection,
-  IconTerminal2,
+    IconExchange,
+    IconHome,
+    IconLayoutList,
+    IconMoonStars,
+    IconNewSection, IconQuestionMark,
+    IconUser,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Amazon from "@/assets/images/amazon-removebg-preview.png";
 import useThemeStore from "@/app/stores/useThemeStore";
 
 export const Dock = () => {
-  const { darkMode, toggleDarkMode } = useThemeStore();
+  const {toggleDarkMode } = useThemeStore();
 
   const links = [
     {
@@ -51,18 +50,18 @@ export const Dock = () => {
       href: "#",
     },
     {
-      title: "Changelog",
+      title: "A Propos",
       icon: (
-          <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+          <IconQuestionMark className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/about",
     },
     {
-      title: "Twitter",
+      title: "Connexion - Inscription",
       icon: (
-          <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+          <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/login",
     },
     {
       title: "Mode Sombre",
