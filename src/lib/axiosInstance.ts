@@ -1,8 +1,7 @@
-// utils/axiosInstance.js
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000', // Base URL de votre backend
+  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000', // Base URL de votre backend
 });
 
 export default axiosInstance;
