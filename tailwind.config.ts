@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
-// Fonction pour ajouter des variables CSS pour les couleurs
 function addVariablesForColors({ addBase, theme }: any) {
     let allColors = flattenColorPalette(theme("colors"));
     let newVars = Object.fromEntries(

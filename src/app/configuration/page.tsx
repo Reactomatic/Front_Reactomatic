@@ -16,6 +16,5 @@ export default function ConfigurationPage() {
         </div>
       </div>
     </ConfigProvider>
-
   );
 }

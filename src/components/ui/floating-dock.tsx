@@ -5,7 +5,7 @@ import {
     IconHome,
     IconLayoutList,
     IconMoonStars,
-    IconNewSection,
+    IconNewSection, IconQuestionMark,
     IconUser,
 } from "@tabler/icons-react";
 import Image from "next/image";
@@ -50,11 +50,11 @@ export const Dock = () => {
       href: "#",
     },
     {
-      title: "Changelog",
+      title: "A Propos",
       icon: (
-          <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+          <IconQuestionMark className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/about",
     },
     {
       title: "Connexion - Inscription",
