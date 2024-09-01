@@ -1,13 +1,11 @@
 "use client"
 
 import {
-    IconBrandX,
     IconExchange,
     IconHome,
     IconLayoutList,
     IconMoonStars,
-    IconNewSection,
-    IconTerminal2
+    IconNewSection, IconUser
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Logo from "@/assets/images/Capture_d_écran_2024-08-31_à_19.41.50-removebg-preview.png";
@@ -47,6 +45,7 @@ export const Dock = () => {
                     width={25}
                     height={25}
                     alt="Aceternity Logo"
+                    className={"hover:animate-spin duration-100"}
                 />
             ),
             href: "#",
@@ -59,11 +58,11 @@ export const Dock = () => {
             href: "#",
         },
         {
-            title: "Twitter",
+            title: "Connexion",
             icon: (
-                <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+                <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
             ),
-            href: "#",
+            href: "/login",
         },
         {
             title: "Mode Sombre",
