@@ -5,7 +5,7 @@ import { ComponentListCreation } from "@/components/component/component/componen
 export default function ConfigurationPage() {
   return (
     <ConfigProvider>
-      <div className="container mx-auto h-full mt-8">
+      <div className="container mt-19 mx-auto h-full">
         <div className="flex flex-col h-full md:flex-row gap-6">
           <div className="w-full md:w-2/3">
             <ComponentListCreation />
@@ -16,6 +16,5 @@ export default function ConfigurationPage() {
         </div>
       </div>
     </ConfigProvider>
-
   );
 }

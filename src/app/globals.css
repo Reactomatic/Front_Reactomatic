@@ -57,6 +57,23 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  /* Masquer la scrollbar pour les navigateurs WebKit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Masquer la scrollbar pour Firefox */
+  * {
+    scrollbar-width: none; /* Masque la scrollbar tout en permettant le défilement */
+  }
+
+  /* Assurez-vous que l'élément est défilable */
+  .your-scrollable-element {
+    overflow: scroll; /* ou auto, selon vos besoins */
+  }
+
+
 }
 
 @layer base {

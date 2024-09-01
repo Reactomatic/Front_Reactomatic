@@ -9,7 +9,9 @@ const nextConfig = {
       ignoreDuringBuilds: true,
     },
     images: {
-        domains: ['assets.aceternity.com']
+        domains: [
+            "api.microlink.io"
+        ],
     },
   };
   

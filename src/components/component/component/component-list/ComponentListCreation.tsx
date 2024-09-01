@@ -12,4 +12,4 @@ export const ComponentListCreation: React.FC = () => {
             ))}
         </div>
     );
-};
+}
