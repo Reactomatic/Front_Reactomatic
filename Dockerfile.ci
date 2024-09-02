@@ -40,7 +40,7 @@ COPY --from=builder /app/next.config.mjs ./
 RUN npm install --only=production
 
 # Expose the port
-EXPOSE 3001
+EXPOSE 3000
 
 # Définir la variable d'environnement pour la base URL de l'API
 
