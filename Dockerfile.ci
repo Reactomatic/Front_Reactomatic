@@ -31,7 +31,7 @@ COPY --from=builder /app/next.config.mjs ./
 
 COPY .env.production .env
 
-ENV REACT_APP_API_BASE_URL=http://51.89.139.78.nip.io
+ENV NEXT_PUBLIC_API_BASE_URL=http://51.89.139.78.nip.io
 
 
 # Install production dependencies only
