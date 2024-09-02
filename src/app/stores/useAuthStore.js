@@ -1,5 +1,8 @@
 // stores/useAuthStore.js
 import { create } from 'zustand';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 import axios from '@/lib/axiosInstance';
 
 
@@ -11,6 +14,8 @@ const useAuthStore = create((set) => ({
   register: async (email, password, firstName, lastName) => {
     try {
       console.log('Hey')
+      console.log('axios', axios)
+      console.log(process.env.REACT_APP_API_BASE_URL + '/auth/register')
       const response = await axios.post('/auth/register', { email, password, firstName, lastName });
       console.log(response)
       const { user, token } = response.data;
