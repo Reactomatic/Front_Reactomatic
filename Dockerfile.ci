@@ -40,7 +40,7 @@ ENV NEXT_PUBLIC_API_BASE_URL=http://51.89.139.78.nip.io
 RUN npm install --only=production
 
 # Expose the port
-EXPOSE 3000
+EXPOSE 3001
 
 # Définir la variable d'environnement pour la base URL de l'API
 
