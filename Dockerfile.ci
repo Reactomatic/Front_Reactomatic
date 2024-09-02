@@ -31,7 +31,9 @@ COPY --from=builder /app/next.config.mjs ./
 
 COPY .env.production .env
 
-ENV NEXT_PUBLIC_API_BASE_URL=http://reactomatic-backend:3000
+# ENV NEXT_PUBLIC_API_BASE_URL=http://reactomatic-backend:3000
+
+ENV NEXT_PUBLIC_API_BASE_URL=http://51.89.139.78.nip.io
 
 
 # Install production dependencies only
