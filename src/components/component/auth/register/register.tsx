@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast"
-import useAuthStore from "@/app/stores/useAuthStore";
+import useAuthStore from "@/stores/useAuthStore";
 
 // Schema validation using zod
 const RegisterSchema = z.object({
@@ -26,7 +26,7 @@ const RegisterSchema = z.object({
 });
 
 export function Register() {
-  const { register: registerUser, isAuthenticated } = useAuthStore();
+  const { register: registerUser, isAuthenticated } = useAuthStore() as { register: Function, isAuthenticated: boolean };
   const { toast } = useToast()
 
   const form = useForm({

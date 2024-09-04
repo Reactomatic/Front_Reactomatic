@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import useAuthStore from "@/app/stores/useAuthStore";
+import useAuthStore from "@/stores/useAuthStore";
 import Link from "next/link";
 
 // Schema validation using zod
@@ -19,7 +19,7 @@ const LoginSchema = z.object({
 });
 
 export function Login() {
-  const { login: loginUser } = useAuthStore();
+  const { login } = useAuthStore() as { login: Function };
   const { toast } = useToast();
 
   const form = useForm({
@@ -36,7 +36,7 @@ export function Login() {
   }
 
   async function onSubmit(data: LoginFormData) {
-    await loginUser(data.email, data.password);
+    await login(data.email, data.password);
     toast({
       title: "Connexion réussie!",
       description: "Bienvenue à nouveau.",

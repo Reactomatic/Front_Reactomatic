@@ -25,3 +25,8 @@ export type ConfigContextType = {
 
 export type PCComponentType = 'processeur' | 'carte mère' | 'carte graphique' | 'ram' | 'stockage' | 'boitié' | 'alimentation';
 
+export type Configuration = {
+    id: string;
+    name: string;
+    price: number;
+};
