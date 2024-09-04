@@ -1,16 +1,14 @@
 "use client"
 
 import {
-    IconBrandX,
     IconExchange,
     IconHome,
     IconLayoutList,
     IconMoonStars,
-    IconNewSection,
-    IconTerminal2
+    IconNewSection, IconQuestionMark, IconUser
 } from "@tabler/icons-react";
 import Image from "next/image";
-import Amazon from "@/assets/images/amazon-removebg-preview.png";
+import Logo from "@/assets/images/Capture_d_écran_2024-08-31_à_19.41.50-removebg-preview.png";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import useThemeStore from "@/stores/useThemeStore";
 
@@ -40,30 +38,31 @@ export const Dock = () => {
             href: "/configuration",
         },
         {
-            title: "Aceternity UI",
+            title: "Reactomatic",
             icon: (
                 <Image
-                    src={Amazon}
-                    width={20}
-                    height={20}
+                    src={Logo}
+                    width={25}
+                    height={25}
                     alt="Aceternity Logo"
+                    className={"hover:animate-spin duration-100"}
                 />
             ),
             href: "#",
         },
         {
-            title: "Changelog",
+            title: "A Propos",
             icon: (
-                <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+                <IconQuestionMark className="h-full w-full text-neutral-500 dark:text-neutral-300" />
             ),
-            href: "#",
+            href: "/about",
         },
         {
-            title: "Twitter",
+            title: "Connexion",
             icon: (
-                <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+                <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
             ),
-            href: "#",
+            href: "/login",
         },
         {
             title: "Mode Sombre",

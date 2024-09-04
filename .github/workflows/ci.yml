@@ -47,3 +47,5 @@ jobs:
         file: ./Dockerfile.ci
         push: true
         tags: ghcr.io/${{ env.REPO_NAME }}/${{ env.BRANCH_NAME }}:latest
+        build-args: |
+          REACT_APP_API_BASE_URL=http://51.89.139.78.nip.io
