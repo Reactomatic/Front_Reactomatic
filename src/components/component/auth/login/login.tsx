@@ -19,7 +19,7 @@ const LoginSchema = z.object({
 });
 
 export function Login() {
-  const { login: loginUser } = useAuthStore();
+  const { login } = useAuthStore() as { login: Function };
   const { toast } = useToast();
 
   const form = useForm({
@@ -36,7 +36,7 @@ export function Login() {
   }
 
   async function onSubmit(data: LoginFormData) {
-    await loginUser(data.email, data.password);
+    await login(data.email, data.password);
     toast({
       title: "Connexion réussie!",
       description: "Bienvenue à nouveau.",

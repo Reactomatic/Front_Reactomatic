@@ -8,7 +8,7 @@ const useAuthStore = create((set) => ({
   token: null,
   isAuthenticated: false,
 
-  register: async (email, password, firstName, lastName) => {
+  register: async (email: string, password: string, firstName: string, lastName: string) => {
     try {
       console.log('Hey')
       const response = await axios.post('/auth/register', { email, password, firstName, lastName });
@@ -27,7 +27,7 @@ const useAuthStore = create((set) => ({
     }
   },    
 
-  login: async (email, password) => {
+  login: async (email: string, password: string) => {
     try {
       const response = await axios.post('/auth/login', { email, password });
       const { user, access_token } = response.data;
@@ -39,6 +39,7 @@ const useAuthStore = create((set) => ({
       });
 
       localStorage.setItem('token', access_token);
+      return user;
     } catch (error) {
       console.error('Login failed:', error);
     }

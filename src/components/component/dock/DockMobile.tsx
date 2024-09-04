@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import Amazon from "@/assets/images/amazon-removebg-preview.png";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import useThemeStore from "@/app/stores/useThemeStore";
+import useThemeStore from "@/stores/useThemeStore";
 
 export const Dock = () => {
     const { darkMode, toggleDarkMode } = useThemeStore();

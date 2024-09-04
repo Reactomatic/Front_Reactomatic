@@ -26,7 +26,7 @@ const RegisterSchema = z.object({
 });
 
 export function Register() {
-  const { register: registerUser, isAuthenticated } = useAuthStore();
+  const { register: registerUser, isAuthenticated } = useAuthStore() as { register: Function, isAuthenticated: boolean };
   const { toast } = useToast()
 
   const form = useForm({
