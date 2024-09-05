@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import componentsData from '@/data/components.json';
-import { ComponentType, Component } from "@/type";
+import { ComponentType, ComponentData } from "@/components/component/component/admin/types";
 import { Button } from "@/components/ui/button";
 
 interface ComponentPopupProps {
     type: ComponentType;
     onClose: () => void;
-    onSelect: (component: Component) => void;
+    onSelect: (component: ComponentData) => void;
 }
 
 export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, onSelect }) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const components = componentsData[type] || [];
 
-    const filteredComponents = components.filter((component) =>
-        component.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        component.description.toLowerCase().includes(searchTerm.toLowerCase())
+    const components = componentsData[type as keyof typeof componentsData] as ComponentData[] || [];
+
+    const filteredComponents = components.filter((component: ComponentData) =>
+        component.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
@@ -45,14 +45,13 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                 />
 
                 <div className="max-h-96 overflow-y-auto min-h-[50vh]">
-                    {filteredComponents.map((component: Component) => (
+                    {filteredComponents.map((component: ComponentData) => (
                         <div
                             key={component.id}
                             className="border border-gray-300 rounded-lg mb-4 p-4 cursor-pointer hover:bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700"
                             onClick={() => onSelect(component)}
                         >
                             <p className="font-medium">{component.name}</p>
-                            <p className="text-sm text-gray-600">{component.description}</p>
                             <p className="mt-1 font-bold">{component.price} €</p>
                         </div>
                     ))}
