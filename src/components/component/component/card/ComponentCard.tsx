@@ -87,10 +87,18 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
             </div>
             {selectedComponent ? (
                 <>
+                    <p className="text-xl font-semibold text-gray-600 dark:text-neutral-500 pt-1">{selectedComponent.brand}</p>
                     <p className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
                         {selectedComponent.name}
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-neutral-500 pt-1">{selectedComponent.brand}</p>
+                    <p className="text-sm text-gray-500 dark:text-neutral-400 pt-2">
+                        {selectedComponent?.metadata?.slice(0, 4).map((meta, index) => (
+                            <span key={index}>
+                                {meta.key}: {meta.value}
+                                {index < 10 && ' '}
+                            </span>
+                        ))}
+                    </p>
                     <div className="grid grid-cols-2 gap-2 pt-2">
                         {selectedComponent.priceByRetailer && renderProviderPrice(selectedComponent.priceByRetailer)}
                     </div>
