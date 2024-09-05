@@ -22,7 +22,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
     const renderProviderPrice = (pricesByRetailer: PriceByRetailer[]) => {
         return pricesByRetailer.map(({ retailer, price }) => (
             <div key={retailer}
-                 className="grid grid-cols-2 place-items-center bg-neutral-800 text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md space-x-0.5">
+                 className="grid grid-cols-3 gap-2 place-items-center bg-neutral-800 text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md">
                 {retailer === "Amazon" && (
                     <Image
                         priority
@@ -30,7 +30,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                         height={25}
                         width={25}
                         alt="Amazon Logo"
-                        className=""
+                        className="pr-1"
                     />
                 )}
                 {retailer === "LDLC" && (
@@ -40,7 +40,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                         height={20}
                         width={20}
                         alt="LDLC Logo"
-                        className=""
+                        className="pr-1"
                     />
                 )}
                 {retailer === "Materiel.net" && (
@@ -50,10 +50,10 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                         height={25}
                         width={25}
                         alt="Materiel.net Logo"
-                        className=""
+                        className="pr-1"
                     />
                 )}
-                <span className="font-semibold text-md dark:text-white">{price}€</span>
+                <span className="font-semibold col-span-2 text-md dark:text-white">{price}€</span>
             </div>
         ));
     };
@@ -87,7 +87,9 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
             </div>
             {selectedComponent ? (
                 <>
-                    <p className="font-medium whitespace-nowrap">{selectedComponent.name}</p>
+                    <p className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+                        {selectedComponent.name}
+                    </p>
                     <p className="text-sm text-gray-600 dark:text-neutral-500 pt-1">{selectedComponent.brand}</p>
                     <div className="grid grid-cols-2 gap-2 pt-2">
                         {selectedComponent.priceByRetailer && renderProviderPrice(selectedComponent.priceByRetailer)}

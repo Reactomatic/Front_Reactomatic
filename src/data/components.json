@@ -2,92 +2,399 @@
   "cpu": [
     {
       "id": 1,
-      "category": "cpu",
-      "name": "AMD Ryzen 5 5600X",
-      "price": 299.99,
-      "brand": "AMD",
-      "metadata": [
-        { "key": "cores", "value": 6 },
-        { "key": "threads", "value": 12 },
-        { "key": "baseClock", "value": "3.7 GHz" },
-        { "key": "boostClock", "value": "4.6 GHz" },
-        { "key": "tdp", "value": "65W" }
-      ],
+      "name": "Intel Core i9-11900K",
+      "price": 499.99,
+      "brand": "Intel",
+      "metadata": [{ "key": "cores", "value": 8 }, { "key": "threads", "value": 16 }],
       "priceByRetailer": [
-        { "retailer": "Amazon", "price": 299.99, "url": "https://www.amazon.com" },
-        { "retailer": "LDLC", "price": 320.50, "url": "https://www.ldlc.com" }
+        { "retailer": "Amazon", "price": 499.99, "url": "https://www.amazon.com/Intel-i9-11900K" },
+        { "retailer": "LDLC", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
       ]
     },
     {
       "id": 2,
-      "category": "cpu",
-      "name": "Intel Core i7-11700K",
-      "price": 409.99,
-      "brand": "Intel",
-      "metadata": [
-        { "key": "cores", "value": 8 },
-        { "key": "threads", "value": 16 },
-        { "key": "baseClock", "value": "3.6 GHz" },
-        { "key": "boostClock", "value": "5.0 GHz" },
-        { "key": "tdp", "value": "125W" }
-      ],
+      "name": "AMD Ryzen 9 5900X",
+      "price": 549.99,
+      "brand": "AMD",
+      "metadata": [{ "key": "cores", "value": 12 }, { "key": "threads", "value": 24 }],
       "priceByRetailer": [
-        { "retailer": "Amazon", "price": 409.99, "url": "https://www.amazon.com" },
-        { "retailer": "LDLC", "price": 420.00, "url": "https://www.ldlc.com" }
+        { "retailer": "Amazon", "price": 549.99, "url": "https://www.amazon.com/AMD-Ryzen-9-5900X" },
+        { "retailer": "LDLC", "price": 560.99, "url": "https://www.ldlc.com/AMD-Ryzen-9-5900X" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Intel Core i7-11700K",
+      "price": 389.99,
+      "brand": "Intel",
+      "metadata": [{ "key": "cores", "value": 8 }, { "key": "threads", "value": 16 }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 389.99, "url": "https://www.amazon.com/Intel-i7-11700K" },
+        { "retailer": "LDLC", "price": 400.99, "url": "https://www.ldlc.com/Intel-i7-11700K" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "AMD Ryzen 7 5800X",
+      "price": 449.99,
+      "brand": "AMD",
+      "metadata": [{ "key": "cores", "value": 8 }, { "key": "threads", "value": 16 }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 449.99, "url": "https://www.amazon.com/AMD-Ryzen-7-5800X" },
+        { "retailer": "LDLC", "price": 460.99, "url": "https://www.ldlc.com/AMD-Ryzen-7-5800X" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Intel Core i5-11600K",
+      "price": 279.99,
+      "brand": "Intel",
+      "metadata": [{ "key": "cores", "value": 6 }, { "key": "threads", "value": 12 }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 279.99, "url": "https://www.amazon.com/Intel-i5-11600K" },
+        { "retailer": "LDLC", "price": 290.99, "url": "https://www.ldlc.com/Intel-i5-11600K" }
       ]
     }
   ],
   "motherboard": [
     {
-      "id": 3,
-      "category": "motherboard",
-      "name": "ASUS ROG Strix B550-F",
-      "price": 199.99,
-      "brand": "ASUS",
-      "metadata": [
-        { "key": "formFactor", "value": "ATX" },
-        { "key": "chipset", "value": "B550" },
-        { "key": "socket", "value": "AM4" }
-      ],
+      "id": 1,
+      "name": "Asus ROG Strix Z590-E",
+      "price": 399.99,
+      "brand": "Asus",
+      "metadata": [{ "key": "socket", "value": "LGA 1200" }, { "key": "chipset", "value": "Z590" }],
       "priceByRetailer": [
-        { "retailer": "Amazon", "price": 199.99, "url": "https://www.amazon.com" },
-        { "retailer": "LDLC", "price": 215.00, "url": "https://www.ldlc.com" }
+        { "retailer": "Amazon", "price": 399.99, "url": "https://www.amazon.com/Asus-ROG-Strix-Z590-E" },
+        { "retailer": "LDLC", "price": 410.99, "url": "https://www.ldlc.com/Asus-ROG-Strix-Z590-E" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "MSI MPG B550 Gaming Edge",
+      "price": 199.99,
+      "brand": "MSI",
+      "metadata": [{ "key": "socket", "value": "AM4" }, { "key": "chipset", "value": "B550" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 199.99, "url": "https://www.amazon.com/MSI-MPG-B550-Gaming-Edge" },
+        { "retailer": "LDLC", "price": 210.99, "url": "https://www.ldlc.com/MSI-MPG-B550-Gaming-Edge" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Gigabyte Aorus X570 Master",
+      "price": 349.99,
+      "brand": "Gigabyte",
+      "metadata": [{ "key": "socket", "value": "AM4" }, { "key": "chipset", "value": "X570" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 349.99, "url": "https://www.amazon.com/Gigabyte-Aorus-X570-Master" },
+        { "retailer": "LDLC", "price": 360.99, "url": "https://www.ldlc.com/Gigabyte-Aorus-X570-Master" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Asus TUF Gaming X570-Plus",
+      "price": 229.99,
+      "brand": "Asus",
+      "metadata": [{ "key": "socket", "value": "AM4" }, { "key": "chipset", "value": "X570" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 229.99, "url": "https://www.amazon.com/Asus-TUF-Gaming-X570-Plus" },
+        { "retailer": "LDLC", "price": 240.99, "url": "https://www.ldlc.com/Asus-TUF-Gaming-X570-Plus" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "MSI MEG Z490 Ace",
+      "price": 299.99,
+      "brand": "MSI",
+      "metadata": [{ "key": "socket", "value": "LGA 1200" }, { "key": "chipset", "value": "Z490" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 299.99, "url": "https://www.amazon.com/MSI-MEG-Z490-Ace" },
+        { "retailer": "LDLC", "price": 310.99, "url": "https://www.ldlc.com/MSI-MEG-Z490-Ace" }
       ]
     }
   ],
   "video_card": [
     {
-      "id": 4,
-      "category": "video_card",
-      "name": "NVIDIA GeForce RTX 3080",
-      "price": 799.99,
+      "id": 1,
+      "name": "NVIDIA RTX 3080",
+      "price": 699.99,
       "brand": "NVIDIA",
-      "metadata": [
-        { "key": "vram", "value": "10 GB" },
-        { "key": "cudaCores", "value": 8704 },
-        { "key": "baseClock", "value": "1.44 GHz" },
-        { "key": "boostClock", "value": "1.71 GHz" }
-      ],
+      "metadata": [{ "key": "vram", "value": "10GB" }, { "key": "boostClock", "value": "1710 MHz" }],
       "priceByRetailer": [
-        { "retailer": "Amazon", "price": 799.99, "url": "https://www.amazon.com" },
-        { "retailer": "Materiel.net", "price": 820.00, "url": "https://www.materiel.net" }
+        { "retailer": "Amazon", "price": 699.99, "url": "https://www.amazon.com/NVIDIA-RTX-3080" },
+        { "retailer": "LDLC", "price": 720.99, "url": "https://www.ldlc.com/NVIDIA-RTX-3080" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "AMD RX 6800 XT",
+      "price": 649.99,
+      "brand": "AMD",
+      "metadata": [{ "key": "vram", "value": "16GB" }, { "key": "boostClock", "value": "2250 MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 649.99, "url": "https://www.amazon.com/AMD-RX-6800-XT" },
+        { "retailer": "LDLC", "price": 660.99, "url": "https://www.ldlc.com/AMD-RX-6800-XT" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "NVIDIA RTX 3070",
+      "price": 499.99,
+      "brand": "NVIDIA",
+      "metadata": [{ "key": "vram", "value": "8GB" }, { "key": "boostClock", "value": "1725 MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 499.99, "url": "https://www.amazon.com/NVIDIA-RTX-3070" },
+        { "retailer": "LDLC", "price": 510.99, "url": "https://www.ldlc.com/NVIDIA-RTX-3070" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "AMD RX 6700 XT",
+      "price": 479.99,
+      "brand": "AMD",
+      "metadata": [{ "key": "vram", "value": "12GB" }, { "key": "boostClock", "value": "2424 MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 479.99, "url": "https://www.amazon.com/AMD-RX-6700-XT" },
+        { "retailer": "LDLC", "price": 490.99, "url": "https://www.ldlc.com/AMD-RX-6700-XT" }
       ]
     },
     {
       "id": 5,
-      "category": "video_card",
-      "name": "AMD Radeon RX 6800",
-      "price": 579.99,
-      "brand": "AMD",
-      "metadata": [
-        { "key": "vram", "value": "16 GB" },
-        { "key": "cudaCores", "value": "N/A" },
-        { "key": "baseClock", "value": "1.82 GHz" },
-        { "key": "boostClock", "value": "2.1 GHz" }
-      ],
+      "name": "NVIDIA RTX 3060 Ti",
+      "price": 399.99,
+      "brand": "NVIDIA",
+      "metadata": [{ "key": "vram", "value": "8GB" }, { "key": "boostClock", "value": "1665 MHz" }],
       "priceByRetailer": [
-        { "retailer": "Amazon", "price": 579.99, "url": "https://www.amazon.com" },
-        { "retailer": "LDLC", "price": 590.00, "url": "https://www.ldlc.com" }
+        { "retailer": "Amazon", "price": 399.99, "url": "https://www.amazon.com/NVIDIA-RTX-3060-Ti" },
+        { "retailer": "LDLC", "price": 410.99, "url": "https://www.ldlc.com/NVIDIA-RTX-3060-Ti" }
+      ]
+    }
+  ],
+  "case": [
+    {
+      "id": 1,
+      "name": "NZXT H510",
+      "price": 99.99,
+      "brand": "NZXT",
+      "metadata": [{ "key": "formFactor", "value": "ATX" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 99.99, "url": "https://www.amazon.com/NZXT-H510" },
+        { "retailer": "LDLC", "price": 105.99, "url": "https://www.ldlc.com/NZXT-H510" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Corsair 4000D",
+      "price": 89.99,
+      "brand": "Corsair",
+      "metadata": [{ "key": "formFactor", "value": "ATX" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 89.99, "url": "https://www.amazon.com/Corsair-4000D" },
+        { "retailer": "LDLC", "price": 95.99, "url": "https://www.ldlc.com/Corsair-4000D" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Fractal Design Meshify C",
+      "price": 109.99,
+      "brand": "Fractal Design",
+      "metadata": [{ "key": "formFactor", "value": "ATX" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 109.99, "url": "https://www.amazon.com/Fractal-Design-Meshify-C" },
+        { "retailer": "LDLC", "price": 115.99, "url": "https://www.ldlc.com/Fractal-Design-Meshify-C" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Cooler Master MasterBox Q300L",
+      "price": 59.99,
+      "brand": "Cooler Master",
+      "metadata": [{ "key": "formFactor", "value": "Micro-ATX" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 59.99, "url": "https://www.amazon.com/Cooler-Master-Q300L" },
+        { "retailer": "LDLC", "price": 65.99, "url": "https://www.ldlc.com/Cooler-Master-Q300L" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Phanteks Eclipse P400A",
+      "price": 89.99,
+      "brand": "Phanteks",
+      "metadata": [{ "key": "formFactor", "value": "ATX" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 89.99, "url": "https://www.amazon.com/Phanteks-Eclipse-P400A" },
+        { "retailer": "LDLC", "price": 95.99, "url": "https://www.ldlc.com/Phanteks-Eclipse-P400A" }
+      ]
+    }
+  ],
+  "memory": [
+    {
+      "id": 1,
+      "name": "Corsair Vengeance LPX 16GB",
+      "price": 79.99,
+      "brand": "Corsair",
+      "metadata": [{ "key": "capacity", "value": "16GB" }, { "key": "speed", "value": "3200MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 79.99, "url": "https://www.amazon.com/Corsair-Vengeance-LPX-16GB" },
+        { "retailer": "LDLC", "price": 85.99, "url": "https://www.ldlc.com/Corsair-Vengeance-LPX-16GB" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "G.Skill Ripjaws V 16GB",
+      "price": 74.99,
+      "brand": "G.Skill",
+      "metadata": [{ "key": "capacity", "value": "16GB" }, { "key": "speed", "value": "3200MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 74.99, "url": "https://www.amazon.com/G.Skill-Ripjaws-V-16GB" },
+        { "retailer": "LDLC", "price": 80.99, "url": "https://www.ldlc.com/G.Skill-Ripjaws-V-16GB" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Crucial Ballistix 16GB",
+      "price": 69.99,
+      "brand": "Crucial",
+      "metadata": [{ "key": "capacity", "value": "16GB" }, { "key": "speed", "value": "3000MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 69.99, "url": "https://www.amazon.com/Crucial-Ballistix-16GB" },
+        { "retailer": "LDLC", "price": 75.99, "url": "https://www.ldlc.com/Crucial-Ballistix-16GB" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "TeamGroup T-Force Vulcan Z 16GB",
+      "price": 64.99,
+      "brand": "TeamGroup",
+      "metadata": [{ "key": "capacity", "value": "16GB" }, { "key": "speed", "value": "3200MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 64.99, "url": "https://www.amazon.com/TeamGroup-T-Force-Vulcan-Z-16GB" },
+        { "retailer": "LDLC", "price": 70.99, "url": "https://www.ldlc.com/TeamGroup-T-Force-Vulcan-Z-16GB" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "ADATA XPG Z1 16GB",
+      "price": 69.99,
+      "brand": "ADATA",
+      "metadata": [{ "key": "capacity", "value": "16GB" }, { "key": "speed", "value": "3200MHz" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 69.99, "url": "https://www.amazon.com/ADATA-XPG-Z1-16GB" },
+        { "retailer": "LDLC", "price": 75.99, "url": "https://www.ldlc.com/ADATA-XPG-Z1-16GB" }
+      ]
+    }
+  ],
+  "internal_hard_drive": [
+    {
+      "id": 1,
+      "name": "Samsung 970 EVO 1TB",
+      "price": 129.99,
+      "brand": "Samsung",
+      "metadata": [{ "key": "capacity", "value": "1TB" }, { "key": "interface", "value": "NVMe" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 129.99, "url": "https://www.amazon.com/Samsung-970-EVO-1TB" },
+        { "retailer": "LDLC", "price": 135.99, "url": "https://www.ldlc.com/Samsung-970-EVO-1TB" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "WD Blue 1TB",
+      "price": 49.99,
+      "brand": "Western Digital",
+      "metadata": [{ "key": "capacity", "value": "1TB" }, { "key": "interface", "value": "SATA" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 49.99, "url": "https://www.amazon.com/WD-Blue-1TB" },
+        { "retailer": "LDLC", "price": 55.99, "url": "https://www.ldlc.com/WD-Blue-1TB" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Seagate Barracuda 2TB",
+      "price": 64.99,
+      "brand": "Seagate",
+      "metadata": [{ "key": "capacity", "value": "2TB" }, { "key": "interface", "value": "SATA" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 64.99, "url": "https://www.amazon.com/Seagate-Barracuda-2TB" },
+        { "retailer": "LDLC", "price": 70.99, "url": "https://www.ldlc.com/Seagate-Barracuda-2TB" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Crucial MX500 1TB",
+      "price": 99.99,
+      "brand": "Crucial",
+      "metadata": [{ "key": "capacity", "value": "1TB" }, { "key": "interface", "value": "SATA" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 99.99, "url": "https://www.amazon.com/Crucial-MX500-1TB" },
+        { "retailer": "LDLC", "price": 105.99, "url": "https://www.ldlc.com/Crucial-MX500-1TB" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Toshiba P300 3TB",
+      "price": 79.99,
+      "brand": "Toshiba",
+      "metadata": [{ "key": "capacity", "value": "3TB" }, { "key": "interface", "value": "SATA" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 79.99, "url": "https://www.amazon.com/Toshiba-P300-3TB" },
+        { "retailer": "LDLC", "price": 85.99, "url": "https://www.ldlc.com/Toshiba-P300-3TB" }
+      ]
+    }
+  ],
+  "power_supply": [
+    {
+      "id": 1,
+      "name": "Corsair RM850x",
+      "price": 129.99,
+      "brand": "Corsair",
+      "metadata": [{ "key": "wattage", "value": "850W" }, { "key": "efficiencyRating", "value": "80+ Gold" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 129.99, "url": "https://www.amazon.com/Corsair-RM850x" },
+        { "retailer": "LDLC", "price": 135.99, "url": "https://www.ldlc.com/Corsair-RM850x" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "EVGA SuperNOVA 750 G5",
+      "price": 109.99,
+      "brand": "EVGA",
+      "metadata": [{ "key": "wattage", "value": "750W" }, { "key": "efficiencyRating", "value": "80+ Gold" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 109.99, "url": "https://www.amazon.com/EVGA-SuperNOVA-750-G5" },
+        { "retailer": "LDLC", "price": 115.99, "url": "https://www.ldlc.com/EVGA-SuperNOVA-750-G5" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Seasonic Focus GX-750",
+      "price": 119.99,
+      "brand": "Seasonic",
+      "metadata": [{ "key": "wattage", "value": "750W" }, { "key": "efficiencyRating", "value": "80+ Gold" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 119.99, "url": "https://www.amazon.com/Seasonic-Focus-GX-750" },
+        { "retailer": "LDLC", "price": 125.99, "url": "https://www.ldlc.com/Seasonic-Focus-GX-750" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Thermaltake Toughpower GF1 850W",
+      "price": 139.99,
+      "brand": "Thermaltake",
+      "metadata": [{ "key": "wattage", "value": "850W" }, { "key": "efficiencyRating", "value": "80+ Gold" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 139.99, "url": "https://www.amazon.com/Thermaltake-Toughpower-GF1-850W" },
+        { "retailer": "LDLC", "price": 145.99, "url": "https://www.ldlc.com/Thermaltake-Toughpower-GF1-850W" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Be Quiet! Straight Power 11 750W",
+      "price": 129.99,
+      "brand": "Be Quiet!",
+      "metadata": [{ "key": "wattage", "value": "750W" }, { "key": "efficiencyRating", "value": "80+ Platinum" }],
+      "priceByRetailer": [
+        { "retailer": "Amazon", "price": 129.99, "url": "https://www.amazon.com/Be-Quiet-Straight-Power-11-750W" },
+        { "retailer": "LDLC", "price": 135.99, "url": "https://www.ldlc.com/Be-Quiet-Straight-Power-11-750W" }
       ]
     }
   ]
