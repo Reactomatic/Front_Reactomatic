@@ -7,23 +7,25 @@ const useAuthStore = create((set) => ({
   user: null,
   token: null,
   isAuthenticated: false,
+  isAdmin: false,
 
   register: async (email: string, password: string, firstName: string, lastName: string) => {
     try {
-      console.log('Hey')
       const response = await axios.post('/auth/register', { email, password, firstName, lastName });
-      console.log(response)
       const { user, token } = response.data;
 
       set({
         user,
         token,
         isAuthenticated: true,
+        isAdmin: user.role === 'admin',
       });
 
       localStorage.setItem('token', token);
-    } catch (error) {
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
       console.error('Login failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },    
 
@@ -36,12 +38,14 @@ const useAuthStore = create((set) => ({
         user,
         token: access_token,
         isAuthenticated: true,
+        isAdmin: user.role === 'admin',
       });
 
       localStorage.setItem('token', access_token);
-      return user;
-    } catch (error) {
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
       console.error('Login failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },
 
