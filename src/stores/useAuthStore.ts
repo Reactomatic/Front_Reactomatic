@@ -1,8 +1,5 @@
 // stores/useAuthStore.js
 import { create } from 'zustand';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
 import axios from '@/lib/axiosInstance';
 
 
@@ -10,29 +7,29 @@ const useAuthStore = create((set) => ({
   user: null,
   token: null,
   isAuthenticated: false,
+  isAdmin: false,
 
-  register: async (email, password, firstName, lastName) => {
+  register: async (email: string, password: string, firstName: string, lastName: string) => {
     try {
-      console.log('Hey')
-      console.log('axios', axios)
-      console.log(process.env.REACT_APP_API_BASE_URL + '/auth/register')
       const response = await axios.post('/auth/register', { email, password, firstName, lastName });
-      console.log(response)
       const { user, token } = response.data;
 
       set({
         user,
         token,
         isAuthenticated: true,
+        isAdmin: user.role === 'admin',
       });
 
       localStorage.setItem('token', token);
-    } catch (error) {
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
       console.error('Login failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },    
 
-  login: async (email, password) => {
+  login: async (email: string, password: string) => {
     try {
       const response = await axios.post('/auth/login', { email, password });
       const { user, access_token } = response.data;
@@ -41,11 +38,14 @@ const useAuthStore = create((set) => ({
         user,
         token: access_token,
         isAuthenticated: true,
+        isAdmin: user.role === 'admin',
       });
 
       localStorage.setItem('token', access_token);
-    } catch (error) {
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
       console.error('Login failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },
 

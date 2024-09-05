@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import useThemeStore from "@/app/stores/useThemeStore";
+import useThemeStore from "@/stores/useThemeStore";
 
 const inter = Inter({ subsets: ["latin"] });
 

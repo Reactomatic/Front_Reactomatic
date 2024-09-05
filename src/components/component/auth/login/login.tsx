@@ -3,13 +3,14 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from 'next/navigation'
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import useAuthStore from "@/app/stores/useAuthStore";
+import useAuthStore from "@/stores/useAuthStore";
 import Link from "next/link";
 
 // Schema validation using zod
@@ -19,8 +20,9 @@ const LoginSchema = z.object({
 });
 
 export function Login() {
-  const { login: loginUser } = useAuthStore();
+  const { login } = useAuthStore() as { login: Function };
   const { toast } = useToast();
+  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(LoginSchema),
@@ -36,11 +38,28 @@ export function Login() {
   }
 
   async function onSubmit(data: LoginFormData) {
-    await loginUser(data.email, data.password);
-    toast({
-      title: "Connexion réussie!",
-      description: "Bienvenue à nouveau.",
-    });
+    const result = await login(data.email, data.password);
+
+    if (result.status === 200) {
+      toast({
+        title: "Un plaisir de te revoir  " + result.data.user.firstName + " !",
+        description: "Tu vas être redirigé.",
+      });
+
+      router.push('/')
+    } else if (result.status === 400) {
+      toast({
+        title: "Erreur d'inscription",
+        description: result.message,
+        variant: "destructive",
+      });
+    } else if (result.status === 401) {
+      toast({
+        title: "Mot de passe incorrect",
+        description: result.message,
+        variant: "destructive",
+      });
+    }
   }
 
   return (

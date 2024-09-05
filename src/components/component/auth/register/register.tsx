@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from 'next/navigation'
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast"
-import useAuthStore from "@/app/stores/useAuthStore";
+import useAuthStore from "@/stores/useAuthStore";
 
 // Schema validation using zod
 const RegisterSchema = z.object({
@@ -26,8 +27,9 @@ const RegisterSchema = z.object({
 });
 
 export function Register() {
-  const { register: registerUser, isAuthenticated } = useAuthStore();
+  const { register: registerUser, isAuthenticated } = useAuthStore() as { register: Function, isAuthenticated: boolean };
   const { toast } = useToast()
+  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(RegisterSchema),
@@ -49,11 +51,29 @@ export function Register() {
   }
 
   async function onSubmit(data: RegisterFormData) {
-    await registerUser(data.email, data.password, data.firstName, data.lastName);
-    toast({
-      title: "Incription réussi!",
-      description: "Vous allez être redirigé.",
-    });
+    const result = await registerUser(data.email, data.password, data.firstName, data.lastName);
+    if (result.status === 201) {
+      toast({
+        title: "Bienvenue " + data.firstName + " !",
+        description: "Tu vas être redirigé.",
+      });
+
+      router.push('/')
+    } else if (result.status === 400) {
+      toast({
+        title: "Erreur d'inscription",
+        description: result.message,
+        variant: "destructive",
+      });
+    } else if (result.status === 401) {
+      toast({
+        title: "Un compte existe déjà avec cet email",
+        description: result.message,
+        variant: "destructive",
+      });
+
+    }
+
   }
 
   return (
