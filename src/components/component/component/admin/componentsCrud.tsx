@@ -1,56 +1,19 @@
 "use client";
 // ComponentCrud.tsx
-import React, { useState, useMemo } from "react";
+
+import React, { useState, useMemo, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
-import { Pagination } from "@/components/ui/pagination";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { MetadataForm } from "./metadataForm";
 import { ComponentForm } from "./componentForm";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ComponentData, ComponentType } from "./types";
+import { ComponentData, ComponentType } from "@/components/component/component/admin/types";
+import useComponentStore from "@/stores/useComponentStore";
+import { useToast } from "@/components/ui/use-toast";
 
 export function ComponentCrud() {
-  const [data, setData] = useState<ComponentData[]>([
-    {
-      id: 1,
-      category: ComponentType.cpu,
-      name: "AMD Ryzen 9 5900X",
-      price: 549.99,
-      brand: "AMD",
-      metadata: [
-        { key: "socket", value: "AM4" },
-        { key: "cores", value: 12 },
-        { key: "threads", value: 24 },
-      ],
-    },
-    {
-      id: 2,
-      category: ComponentType.motherboard,
-      name: "ASUS ROG Strix X570-E",
-      price: 299.99,
-      brand: "ASUS",
-      metadata: [
-        { key: "socket", value: "AM4" },
-        { key: "formFactor", value: "ATX" },
-        { key: "chipset", value: "X570" },
-      ],
-    },
-    {
-      id: 3,
-      category: ComponentType.memory,
-      name: "Corsair Vengeance RGB Pro 32GB",
-      price: 159.99,
-      brand: "Corsair",
-      metadata: [
-        { key: "speed", value: "3200MHz" },
-        { key: "type", value: "DDR4" },
-        { key: "modules", value: 2 },
-      ],
-    },
-  ]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [data, setData] = useState<ComponentData[]>([]);
   const [sortColumn, setSortColumn] = useState<keyof ComponentData>("name");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
@@ -64,6 +27,12 @@ export function ComponentCrud() {
     price: 0,
     brand: "",
   });
+
+  const { toast } = useToast(); // Utilisation du toast
+
+  useEffect(() => {
+    handleRead(); // Fetch data when component mounts
+  }, []);
 
   const handleSort = (column: keyof ComponentData) => {
     if (column === sortColumn) {
@@ -82,39 +51,134 @@ export function ComponentCrud() {
     });
   }, [data, sortColumn, sortDirection]);
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
+  // Store
+  const { createComponent, fetchComponents, updateComponent, deleteComponent } = useComponentStore() as { fetchComponents: Function, createComponent: Function, updateComponent: Function, deleteComponent: Function };
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  const handleRead = async () => {
+    try {
+      const result = await fetchComponents();
 
-  const handleCreate = () => {
+      if (result.status === 200) {
+        setData(result.data);
+      } else {
+        toast({
+          title: "Erreur de chargement",
+          description: "Impossible de charger les données. Veuillez réessayer.",
+          variant: "destructive",
+        });
+      }
+
+      setData(result.data);
+    } catch (error: any) {
+      throw new Error("Impossible de charger les données. Veuillez réessayer.");
+    }
+  }
+
+  const handleCreate = async () => {
     const newComponent: ComponentData = {
-      id: Math.random(), // Replace with actual unique ID logic
+      id: Math.floor(Math.random() * 1000),
       category: componentType,
       name: formData.name,
       price: formData.price,
       brand: formData.brand,
       metadata: Object.entries(metadata).map(([key, value]) => ({ key, value })),
     };
-    setData([...data, newComponent]);
-    setIsDialogOpen(false);
-    resetForm();
+
+    try {
+      const result = await createComponent(newComponent);
+
+      if (result.status === 201) {
+        setData([...data, result.data]);
+        setIsDialogOpen(false);
+        resetForm();
+        toast({
+          title: "Composant créé",
+          description: "Le composant " + newComponent.name + " a été créé avec succès.",
+        });
+      } else {
+        toast({
+          title: "Erreur de création",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error: any) {
+      throw new Error("Impossible de créer le composant. Veuillez vérifier les informations et réessayer.");
+    }
   };
 
-  const handleUpdate = (id: number) => {
-    const updatedComponent = data.map((item) =>
-      item.id === id ? { ...item, ...formData, metadata: Object.entries(metadata).map(([key, value]) => ({ key, value })) } : item
-    );
-    setData(updatedComponent);
-    setIsDialogOpen(false);
-    resetForm();
+  const handleUpdate = async (id: number) => {
+    const updatedComponent: ComponentData = {
+      id,
+      category: componentType,
+      name: formData.name,
+      price: formData.price,
+      brand: formData.brand,
+      metadata: Object.entries(metadata).map(([key, value]) => ({ key, value })),
+    };
+
+    try {
+      const result = await updateComponent(updatedComponent);
+      if (result.status === 200) {
+        const listDataUpdated = data.map((item) => (item.id === id ? result.data : item));
+        setData(listDataUpdated);
+        setIsDialogOpen(false);
+        resetForm();
+        toast({
+          title: "Composant mis à jour",
+          description: "Le composant " + updatedComponent.name + " a été mis à jour avec succès.",
+        });
+      } else if (result.status === 404) {
+        toast({
+          title: "Erreur de mise à jour",
+          description: "Impossible de mettre à jour le composant. Veuillez vérifier les informations et réessayer.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Erreur de mise à jour",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error: any) {
+      toast({
+        title: "Erreur de mise à jour",
+        description: "Impossible de mettre à jour le composant. Veuillez vérifier les informations et réessayer.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const handleDelete = (id: number) => {
-    setData(data.filter((item) => item.id !== id));
+  const handleDelete = async (id: number) => {
+    try {
+      const result = await deleteComponent(id);
+      if (result.status === 200) {
+        setData(data.filter((item) => item.id !== id));
+        toast({
+          title: "Composant supprimé",
+          description: "Le composant a été supprimé avec succès.",
+        });
+      } else if (result.status === 404) {
+        toast({
+          title: "Erreur de mise à jour",
+          description: "Impossible de mettre à jour le composant. Veuillez vérifier les informations et réessayer.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Erreur de mise à jour",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error: any) {
+      toast({
+        title: "Erreur de suppression",
+        description: "Impossible de supprimer le composant. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    }
   };
 
   const openDialog = (component: ComponentData | null = null) => {
@@ -169,7 +233,7 @@ export function ComponentCrud() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {currentItems.map((item) => (
+            {sortedData.map((item) => (
               <TableRow key={item.id}>
                 <TableCell className="font-medium">{item.name}</TableCell>
                 <TableCell>{item.category}</TableCell>
@@ -190,22 +254,12 @@ export function ComponentCrud() {
           </TableBody>
         </Table>
       </div>
-      <div className="flex justify-end">
-        <Pagination
-          currentPage={currentPage}
-          totalItems={sortedData.length}
-          itemsPerPage={itemsPerPage}
-          onPageChange={handlePageChange}
-        />
-      </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogTrigger asChild>
-          <Button>Open Dialog</Button>
-        </DialogTrigger>
         <DialogContent>
           <div className="p-6">
             <div className="flex flex-col gap-4">
+              <label className="block font-medium">Type de composent</label>
               <Select
                 defaultValue={componentType}
                 onValueChange={(e) => setComponentType(e as ComponentType)}
@@ -269,6 +323,7 @@ function FilePenIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
 
 function TrashIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
