@@ -1,4 +1,5 @@
 // TypeScript enum for ComponentType
+
 export enum ComponentType {
   case_accessory = "case_accessory",
   case_fan = "case_fan",
@@ -26,6 +27,46 @@ export enum ComponentType {
   wired_network_card = "wired_network_card",
   wireless_network_card = "wireless_network_card",
 }
+
+export const ComponentTypeDisplay: Record<ComponentType, string> = {
+  case_accessory: "Accessoire de boîtier",
+  case_fan: "Ventilateur de boîtier",
+  case: "Boîtier",
+  cpu_cooler: "Ventilateur de processeur",
+  cpu: "Processeur",
+  external_hard_drive: "Disque dur externe",
+  internal_hard_drive: "Disque dur interne",
+  fan_controller: "Contrôleur de ventilateur",
+  headphones: "Casque",
+  keyboard: "Clavier",
+  memory: "Mémoire",
+  monitor: "Moniteur",
+  motherboard: "Carte mère",
+  mouse: "Souris",
+  optical_drive: "Lecteur optique",
+  os: "Système d'exploitation",
+  power_supply: "Alimentation",
+  sound_card: "Carte son",
+  speakers: "Haut-parleurs",
+  thermal_paste: "Pâte thermique",
+  ups: "Onduleur (UPS)",
+  video_card: "Carte graphique",
+  webcam: "Webcam",
+  wired_network_card: "Carte réseau filaire",
+  wireless_network_card: "Carte réseau sans fil",
+};
+
+
+
+export type ConfigContextType = {
+  config: Config;
+  setComponentSelection: (type: ComponentType, component: ComponentData | undefined) => void;
+  getTotalPrice: () => number;
+};
+
+export type Config = {
+  [key in ComponentType]?: ComponentData;
+};
 
 // Metadata type
 export interface Metadata {

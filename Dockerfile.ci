@@ -29,6 +29,13 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.mjs ./
 
+COPY .env.production .env
+
+# ENV NEXT_PUBLIC_API_BASE_URL=http://reactomatic-backend:3000
+
+#ENV NEXT_PUBLIC_API_BASE_URL=http://reactomatic-backend:3000
+
+
 # Install production dependencies only
 RUN npm install --only=production
 
@@ -36,7 +43,6 @@ RUN npm install --only=production
 EXPOSE 3000
 
 # Définir la variable d'environnement pour la base URL de l'API
-ENV REACT_APP_API_BASE_URL=http://51.89.139.78.nip.io
 
 # Start the Next.js application
 CMD ["npm", "run", "start"]
