@@ -18,10 +18,9 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
     const { config, setComponentSelection } = useConfig();
     const selectedComponent = config[type as unknown as keyof typeof config];
 
-
     const renderProviderPrice = (pricesByRetailer: PriceByRetailer[]) => {
-        return pricesByRetailer.map(({ retailer, price }) => (
-            <div key={retailer}
+        return pricesByRetailer.map(({ retailer, price }, index) => (
+            <div key={index}
                  className="grid grid-cols-3 gap-2 place-items-center bg-neutral-800 text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md">
                 {retailer === "Amazon" && (
                     <Image
@@ -95,7 +94,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                         {selectedComponent?.metadata?.slice(0, 4).map((meta, index) => (
                             <span key={index}>
                                 {meta.key}: {meta.value}
-                                {index < 10 && ' '}
+                                {index < 3 && ' '}
                             </span>
                         ))}
                     </p>
@@ -130,6 +129,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
     );
 };
 
+// Fonction pour afficher le nom en fonction du type
 export const getComponentTypeDisplayName = (type: ComponentType): string => {
     switch (type) {
         case "case_accessory":
