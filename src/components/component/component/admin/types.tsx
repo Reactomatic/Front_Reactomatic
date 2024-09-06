@@ -59,194 +59,194 @@ export interface ComponentSchema {
 
 export const componentSchemas: Record<ComponentType, ComponentSchema> = {
   case_accessory: {
-    name: "Case Accessory",
+    name: "Accessoire de Boîtier",
     metadata: [
-      { key: "compatibility", label: "Compatibility", type: "text" },
-      { key: "material", label: "Material", type: "text" },
+      { key: "compatibility", label: "Compatibilité", type: "text" },
+      { key: "material", label: "Matériau", type: "text" },
     ],
   },
   case_fan: {
-    name: "Case Fan",
+    name: "Ventilateur de Boîtier",
     metadata: [
-      { key: "size", label: "Size (mm)", type: "number" },
-      { key: "rpm", label: "RPM", type: "number" },
-      { key: "airflow", label: "Airflow (CFM)", type: "number" },
+      { key: "size", label: "Taille (mm)", type: "number" },
+      { key: "rpm", label: "Tours par minute (RPM)", type: "number" },
+      { key: "airflow", label: "Flux d'air (CFM)", type: "number" },
     ],
   },
   case: {
-    name: "Case",
+    name: "Boîtier",
     metadata: [
-      { key: "formFactor", label: "Form Factor", type: "text" },
-      { key: "material", label: "Material", type: "text" },
-      { key: "numberOfBays", label: "Number of Bays", type: "number" },
+      { key: "formFactor", label: "Format", type: "text" },
+      { key: "material", label: "Matériau", type: "text" },
+      { key: "numberOfBays", label: "Nombre de Baies", type: "number" },
     ],
   },
   cpu_cooler: {
-    name: "CPU Cooler",
+    name: "Refroidisseur de CPU",
     metadata: [
-      { key: "coolerType", label: "Cooler Type", type: "text" },
-      { key: "fanSize", label: "Fan Size (mm)", type: "number" },
-      { key: "noiseLevel", label: "Noise Level (dB)", type: "number" },
+      { key: "coolerType", label: "Type de Refroidisseur", type: "text" },
+      { key: "fanSize", label: "Taille du Ventilateur (mm)", type: "number" },
+      { key: "noiseLevel", label: "Niveau Sonore (dB)", type: "number" },
     ],
   },
   cpu: {
-    name: "CPU",
+    name: "Processeur",
     metadata: [
-      { key: "cores", label: "Cores", type: "number" },
+      { key: "cores", label: "Cœurs", type: "number" },
       { key: "threads", label: "Threads", type: "number" },
-      { key: "baseClock", label: "Base Clock (GHz)", type: "number" },
-      { key: "boostClock", label: "Boost Clock (GHz)", type: "number" },
+      { key: "baseClock", label: "Fréquence de Base (GHz)", type: "number" },
+      { key: "boostClock", label: "Fréquence Boost (GHz)", type: "number" },
       { key: "tdp", label: "TDP (W)", type: "number" },
     ],
   },
   external_hard_drive: {
-    name: "External Hard Drive",
+    name: "Disque Dur Externe",
     metadata: [
-      { key: "capacity", label: "Capacity (GB)", type: "number" },
+      { key: "capacity", label: "Capacité (Go)", type: "number" },
       { key: "interface", label: "Interface", type: "text" },
     ],
   },
   internal_hard_drive: {
-    name: "Internal Hard Drive",
+    name: "Disque Dur Interne",
     metadata: [
-      { key: "capacity", label: "Capacity (GB)", type: "number" },
+      { key: "capacity", label: "Capacité (Go)", type: "number" },
       { key: "interface", label: "Interface", type: "text" },
-      { key: "formFactor", label: "Form Factor", type: "text" },
-      { key: "rpm", label: "RPM", type: "number" },
+      { key: "formFactor", label: "Format", type: "text" },
+      { key: "rpm", label: "Tours par minute (RPM)", type: "number" },
     ],
   },
   fan_controller: {
-    name: "Fan Controller",
+    name: "Contrôleur de Ventilateur",
     metadata: [
-      { key: "channels", label: "Number of Channels", type: "number" },
-      { key: "controlType", label: "Control Type", type: "text" },
+      { key: "channels", label: "Nombre de Canaux", type: "number" },
+      { key: "controlType", label: "Type de Contrôle", type: "text" },
     ],
   },
   headphones: {
-    name: "Headphones",
+    name: "Casque Audio",
     metadata: [
       { key: "type", label: "Type", type: "text" },
-      { key: "frequencyResponse", label: "Frequency Response (Hz)", type: "text" },
-      { key: "impedance", label: "Impedance (Ohms)", type: "number" },
+      { key: "frequencyResponse", label: "Réponse en Fréquence (Hz)", type: "text" },
+      { key: "impedance", label: "Impédance (Ohms)", type: "number" },
     ],
   },
   keyboard: {
-    name: "Keyboard",
+    name: "Clavier",
     metadata: [
-      { key: "switchType", label: "Switch Type", type: "text" },
-      { key: "layout", label: "Layout", type: "text" },
-      { key: "backlight", label: "Backlight", type: "text" },
+      { key: "switchType", label: "Type de Switch", type: "text" },
+      { key: "layout", label: "Disposition", type: "text" },
+      { key: "backlight", label: "Rétroéclairage", type: "text" },
     ],
   },
   memory: {
-    name: "Memory",
+    name: "Mémoire",
     metadata: [
-      { key: "capacity", label: "Capacity (GB)", type: "number" },
-      { key: "speed", label: "Speed (MHz)", type: "number" },
+      { key: "capacity", label: "Capacité (Go)", type: "number" },
+      { key: "speed", label: "Vitesse (MHz)", type: "number" },
       { key: "type", label: "Type", type: "text" },
     ],
   },
   monitor: {
-    name: "Monitor",
+    name: "Moniteur",
     metadata: [
-      { key: "size", label: "Size (inches)", type: "number" },
-      { key: "resolution", label: "Resolution", type: "text" },
-      { key: "refreshRate", label: "Refresh Rate (Hz)", type: "number" },
+      { key: "size", label: "Taille (pouces)", type: "number" },
+      { key: "resolution", label: "Résolution", type: "text" },
+      { key: "refreshRate", label: "Taux de Rafraîchissement (Hz)", type: "number" },
     ],
   },
   motherboard: {
-    name: "Motherboard",
+    name: "Carte Mère",
     metadata: [
-      { key: "formFactor", label: "Form Factor", type: "text" },
+      { key: "formFactor", label: "Format", type: "text" },
       { key: "chipset", label: "Chipset", type: "text" },
       { key: "socket", label: "Socket", type: "text" },
     ],
   },
   mouse: {
-    name: "Mouse",
+    name: "Souris",
     metadata: [
       { key: "dpi", label: "DPI", type: "number" },
-      { key: "sensorType", label: "Sensor Type", type: "text" },
+      { key: "sensorType", label: "Type de Capteur", type: "text" },
     ],
   },
   optical_drive: {
-    name: "Optical Drive",
+    name: "Lecteur Optique",
     metadata: [
       { key: "type", label: "Type", type: "text" },
       { key: "interface", label: "Interface", type: "text" },
     ],
   },
   os: {
-    name: "Operating System",
+    name: "Système d'Exploitation",
     metadata: [
       { key: "version", label: "Version", type: "text" },
-      { key: "licenseType", label: "License Type", type: "text" },
+      { key: "licenseType", label: "Type de Licence", type: "text" },
     ],
   },
   power_supply: {
-    name: "Power Supply",
+    name: "Alimentation",
     metadata: [
-      { key: "wattage", label: "Wattage (W)", type: "number" },
-      { key: "efficiencyRating", label: "Efficiency Rating", type: "text" },
-      { key: "modular", label: "Modular", type: "text" },
+      { key: "wattage", label: "Puissance (W)", type: "number" },
+      { key: "efficiencyRating", label: "Indice d'Efficacité", type: "text" },
+      { key: "modular", label: "Modulaire", type: "text" },
     ],
   },
   sound_card: {
-    name: "Sound Card",
+    name: "Carte Son",
     metadata: [
-      { key: "channels", label: "Number of Channels", type: "number" },
+      { key: "channels", label: "Nombre de Canaux", type: "number" },
       { key: "interface", label: "Interface", type: "text" },
     ],
   },
   speakers: {
-    name: "Speakers",
+    name: "Haut-parleurs",
     metadata: [
       { key: "type", label: "Type", type: "text" },
-      { key: "frequencyResponse", label: "Frequency Response (Hz)", type: "text" },
-      { key: "impedance", label: "Impedance (Ohms)", type: "number" },
+      { key: "frequencyResponse", label: "Réponse en Fréquence (Hz)", type: "text" },
+      { key: "impedance", label: "Impédance (Ohms)", type: "number" },
     ],
   },
   thermal_paste: {
-    name: "Thermal Paste",
+    name: "Pâte Thermique",
     metadata: [
-      { key: "thermalConductivity", label: "Thermal Conductivity (W/mK)", type: "number" },
+      { key: "thermalConductivity", label: "Conductivité Thermique (W/mK)", type: "number" },
     ],
   },
   ups: {
-    name: "UPS",
+    name: "Onduleur (UPS)",
     metadata: [
-      { key: "capacity", label: "Capacity (VA)", type: "number" },
-      { key: "batteryRuntime", label: "Battery Runtime (min)", type: "number" },
+      { key: "capacity", label: "Capacité (VA)", type: "number" },
+      { key: "batteryRuntime", label: "Autonomie de Batterie (min)", type: "number" },
     ],
   },
   video_card: {
-    name: "Video Card",
+    name: "Carte Graphique",
     metadata: [
-      { key: "vram", label: "VRAM (GB)", type: "number" },
-      { key: "cudaCores", label: "CUDA Cores", type: "number" },
-      { key: "baseClock", label: "Base Clock (MHz)", type: "number" },
-      { key: "boostClock", label: "Boost Clock (MHz)", type: "number" },
+      { key: "vram", label: "VRAM (Go)", type: "number" },
+      { key: "cudaCores", label: "Cœurs CUDA", type: "number" },
+      { key: "baseClock", label: "Fréquence de Base (MHz)", type: "number" },
+      { key: "boostClock", label: "Fréquence Boost (MHz)", type: "number" },
     ],
   },
   webcam: {
     name: "Webcam",
     metadata: [
-      { key: "resolution", label: "Resolution", type: "text" },
-      { key: "frameRate", label: "Frame Rate (FPS)", type: "number" },
+      { key: "resolution", label: "Résolution", type: "text" },
+      { key: "frameRate", label: "Fréquence d'Images (FPS)", type: "number" },
     ],
   },
   wired_network_card: {
-    name: "Wired Network Card",
+    name: "Carte Réseau Filaire",
     metadata: [
-      { key: "speed", label: "Speed (Mbps)", type: "number" },
+      { key: "speed", label: "Vitesse (Mbps)", type: "number" },
       { key: "interface", label: "Interface", type: "text" },
     ],
   },
   wireless_network_card: {
-    name: "Wireless Network Card",
+    name: "Carte Réseau Sans Fil",
     metadata: [
-      { key: "speed", label: "Speed (Mbps)", type: "number" },
-      { key: "wifiStandard", label: "Wi-Fi Standard", type: "text" },
+      { key: "speed", label: "Vitesse (Mbps)", type: "number" },
+      { key: "wifiStandard", label: "Norme Wi-Fi", type: "text" },
     ],
   },
 };

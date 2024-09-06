@@ -1,7 +1,7 @@
 // MetadataForm.tsx
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { ComponentType, ComponentSchema, componentSchemas } from "./types";
+import { ComponentType, ComponentSchema, componentSchemas } from "@/components/component/component/admin/types";
 
 interface MetadataFormProps {
   componentType: ComponentType;
@@ -25,8 +25,10 @@ export function MetadataForm({ componentType, metadata, setMetadata }: MetadataF
     <div className="flex flex-col gap-4">
       {schema.metadata.map((field) => (
         <div key={field.key}>
-          <label>{field.label}</label>
+          <label htmlFor={field.key} className="block font-medium">{field.label}</label>
           <Input
+            id={field.key}
+            name={field.key}
             type={field.type}
             value={metadata[field.key] || ""}
             onChange={(e) => handleMetadataChange(field.key, e.target.value)}

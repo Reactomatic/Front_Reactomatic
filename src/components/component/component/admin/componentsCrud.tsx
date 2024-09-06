@@ -8,7 +8,7 @@ import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { MetadataForm } from "./metadataForm";
 import { ComponentForm } from "./componentForm";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ComponentData, ComponentType } from "./types";
+import { ComponentData, ComponentType } from "@/components/component/component/admin/types";
 
 export function ComponentCrud() {
   const [data, setData] = useState<ComponentData[]>([
@@ -200,12 +200,10 @@ export function ComponentCrud() {
       </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogTrigger asChild>
-          <Button>Open Dialog</Button>
-        </DialogTrigger>
         <DialogContent>
           <div className="p-6">
             <div className="flex flex-col gap-4">
+              <label className="block font-medium">Type de composent</label>
               <Select
                 defaultValue={componentType}
                 onValueChange={(e) => setComponentType(e as ComponentType)}
