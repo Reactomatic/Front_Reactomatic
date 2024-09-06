@@ -1,101 +1,60 @@
 import { create } from 'zustand';
 import axios from '@/lib/axiosInstance';
-import { Component, ComponentType } from '@/type';
+import { ComponentData } from '@/components/component/component/admin/types';
 
 const useComponentStore = create((set) => ({
   componentList: null,
 
+  // CRUD
+
+  // CREATE
+  createComponent: async (componentData: ComponentData) => {
+    try {
+      const response = await axios.post('/components', componentData);
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('createComponent failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
+    }
+  },
+  // READ
   fetchComponents: async () => {
     try {
-      // const response = await axios.get('/component/list');
-      // const { components } = response.data;
-      const jsonMock: Component[] = [
-        {
-          id: '1',
-          name: 'Component 1',
-          price: 1000,
-          description: 'Description 1',
-          pricesByProvider: [
-            {
-              provider: 'Provider 1',
-              price: 1000,
-            },
-            {
-              provider: 'Provider 2',
-              price: 2000,
-            },
-          ],
-        },
-        {
-          id: '2',
-          name: 'Component 2',
-          price: 2000,
-          description: 'Description 2',
-          pricesByProvider: [
-            {
-              provider: 'Provider 1',
-              price: 2000,
-            },
-            {
-              provider: 'Provider 2',
-              price: 3000,
-            },
-          ],
-        },
-        {
-          id: '3',
-          name: 'Component 3',
-          price: 3000,
-          description: 'Description 3',
-          pricesByProvider: [
-            {
-              provider: 'Provider 1',
-              price: 3000,
-            },
-            {
-              provider: 'Provider 2',
-              price: 4000,
-            },
-          ],
-        },
+      const response = await axios.get('/components');
 
-      ]
-      const components = jsonMock;
-
-      set({
-        componentList: components,
-      });
-
-      return components
-    } catch (error) {
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
       console.error('fetchComponents failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },
 
-  createComponent: async (name: string, type: ComponentType) => {
+  //UPDATE
+  updateComponent: async (componentData: ComponentData) => {
     try {
-      const response = await axios.post('/component/create', { name, type });
-      const { component } = response.data;
+      const response = await axios.patch(`/components/${componentData.id}`, componentData);
 
-      return component
-    } catch (error) {
-      console.error('createComponent failed:', error);
+      return { status: response.status, data: response.data };
+    } catch (error:any) {
+      console.error('updateComponent failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },
 
+  //DELETE
   deleteComponent: async (id: string) => {
     try {
-      await axios.delete(`/component/${id}`);
-    } catch (error) {
+      const response = await axios.delete(`/components/${id}`);
+
+      return { status: response.status, data: response.data };
+
+    } catch (error: any) {
       console.error('deleteComponent failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },
 
-  updateComponent: async (id: string, name: string, type: ComponentType) => {
-    try {
-      await axios.put(`/component/${id}`, { name, type });
-    } catch (error) {
-      console.error('updateComponent failed:', error);
-    }
-  }
 }));
+
+export default useComponentStore;

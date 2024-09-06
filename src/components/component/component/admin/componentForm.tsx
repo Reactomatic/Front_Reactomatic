@@ -1,7 +1,7 @@
 // ComponentForm.tsx
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { ComponentData } from "./types";
+import { ComponentData } from "@/components/component/component/admin/types";
 
 interface ComponentFormProps {
   data: Omit<ComponentData, "id" | "category" | "metadata">;
@@ -20,7 +20,7 @@ export function ComponentForm({ data, setData }: ComponentFormProps) {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <label htmlFor="name" className="block font-medium">Name</label>
+        <label htmlFor="name" className="block font-medium">Nom de l'article</label>
         <Input
           id="name"
           name="name"
@@ -29,7 +29,7 @@ export function ComponentForm({ data, setData }: ComponentFormProps) {
         />
       </div>
       <div>
-        <label htmlFor="price" className="block font-medium">Price</label>
+        <label htmlFor="price" className="block font-medium">Prix</label>
         <Input
           id="price"
           name="price"
@@ -39,7 +39,7 @@ export function ComponentForm({ data, setData }: ComponentFormProps) {
         />
       </div>
       <div>
-        <label htmlFor="brand" className="block font-medium">Brand</label>
+        <label htmlFor="brand" className="block font-medium">Marque</label>
         <Input
           id="brand"
           name="brand"

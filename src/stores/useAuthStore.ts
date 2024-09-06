@@ -49,6 +49,7 @@ const useAuthStore = create((set) => ({
     }
   },
 
+  // TODO
   logout: () => {
     set({
       user: null,
