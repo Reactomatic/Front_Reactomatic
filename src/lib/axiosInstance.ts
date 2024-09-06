@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 // import useAuthStore from '@/stores/useAuthStore';
-=======
 // import * as dotenv from 'dotenv';
-
 // dotenv.config();
 
 console.log('Base URL:', process.env.NEXT_PUBLIC_API_BASE_URL); // Vérifiez si l'URL est bien chargée
