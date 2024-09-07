@@ -8,7 +8,8 @@
       "metadata": [{ "key": "cores", "value": 8 }, { "key": "threads", "value": 16 }],
       "priceByRetailer": [
         { "retailer": "Amazon", "price": 499.99, "url": "https://www.amazon.com/Intel-i9-11900K" },
-        { "retailer": "LDLC", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
+        { "retailer": "LDLC", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" },
+        { "retailer": "Materiel.net", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
       ]
     },
     {
@@ -19,7 +20,8 @@
       "metadata": [{ "key": "cores", "value": 12 }, { "key": "threads", "value": 24 }],
       "priceByRetailer": [
         { "retailer": "Amazon", "price": 549.99, "url": "https://www.amazon.com/AMD-Ryzen-9-5900X" },
-        { "retailer": "LDLC", "price": 560.99, "url": "https://www.ldlc.com/AMD-Ryzen-9-5900X" }
+        { "retailer": "LDLC", "price": 560.99, "url": "https://www.ldlc.com/AMD-Ryzen-9-5900X" },
+        { "retailer": "Materiel.net", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
       ]
     },
     {
@@ -30,7 +32,8 @@
       "metadata": [{ "key": "cores", "value": 8 }, { "key": "threads", "value": 16 }],
       "priceByRetailer": [
         { "retailer": "Amazon", "price": 389.99, "url": "https://www.amazon.com/Intel-i7-11700K" },
-        { "retailer": "LDLC", "price": 400.99, "url": "https://www.ldlc.com/Intel-i7-11700K" }
+        { "retailer": "LDLC", "price": 400.99, "url": "https://www.ldlc.com/Intel-i7-11700K" },
+        { "retailer": "Materiel.net", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
       ]
     },
     {
@@ -350,7 +353,8 @@
       "metadata": [{ "key": "wattage", "value": "850W" }, { "key": "efficiencyRating", "value": "80+ Gold" }],
       "priceByRetailer": [
         { "retailer": "Amazon", "price": 129.99, "url": "https://www.amazon.com/Corsair-RM850x" },
-        { "retailer": "LDLC", "price": 135.99, "url": "https://www.ldlc.com/Corsair-RM850x" }
+        { "retailer": "LDLC", "price": 135.99, "url": "https://www.ldlc.com/Corsair-RM850x" },
+        { "retailer": "Materiel.net", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
       ]
     },
     {
@@ -361,7 +365,8 @@
       "metadata": [{ "key": "wattage", "value": "750W" }, { "key": "efficiencyRating", "value": "80+ Gold" }],
       "priceByRetailer": [
         { "retailer": "Amazon", "price": 109.99, "url": "https://www.amazon.com/EVGA-SuperNOVA-750-G5" },
-        { "retailer": "LDLC", "price": 115.99, "url": "https://www.ldlc.com/EVGA-SuperNOVA-750-G5" }
+        { "retailer": "LDLC", "price": 115.99, "url": "https://www.ldlc.com/EVGA-SuperNOVA-750-G5" },
+        { "retailer": "Materiel.net", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
       ]
     },
     {
@@ -372,7 +377,8 @@
       "metadata": [{ "key": "wattage", "value": "750W" }, { "key": "efficiencyRating", "value": "80+ Gold" }],
       "priceByRetailer": [
         { "retailer": "Amazon", "price": 119.99, "url": "https://www.amazon.com/Seasonic-Focus-GX-750" },
-        { "retailer": "LDLC", "price": 125.99, "url": "https://www.ldlc.com/Seasonic-Focus-GX-750" }
+        { "retailer": "LDLC", "price": 125.99, "url": "https://www.ldlc.com/Seasonic-Focus-GX-750" },
+        { "retailer": "Materiel.net", "price": 510.99, "url": "https://www.ldlc.com/Intel-i9-11900K" }
       ]
     },
     {
