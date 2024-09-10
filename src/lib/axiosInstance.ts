@@ -8,7 +8,7 @@ console.log('Base URL:', process.env.NEXT_PUBLIC_API_BASE_URL); // Vérifiez si 
 
 // Crée une instance d'axios
 const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:3000',
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000',
 });
 
 // Interceptor pour ajouter le Bearer token
