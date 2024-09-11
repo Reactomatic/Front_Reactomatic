@@ -3,12 +3,12 @@
 import React from 'react';
 import { useConfig } from "@/context/ConfigContext";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
-import { Component } from "@/type";
+import {ComponentData} from "@/components/component/component/admin/types";
 
 export default function Ticket() {
     const { config, getTotalPrice } = useConfig();
 
-    const selectedItems = Object.values(config).filter((item): item is Component => !!item);
+    const selectedItems = Object.values(config).filter((item): item is ComponentData => !!item);
 
     const total = getTotalPrice();
     const date = new Date().toLocaleDateString('fr-FR', {

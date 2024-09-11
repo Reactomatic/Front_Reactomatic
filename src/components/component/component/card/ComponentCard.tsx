@@ -90,7 +90,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                     <p className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
                         {selectedComponent.name}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-neutral-400 pt-2">
+                    <p className="text-sm text-gray-500 dark:text-neutral-400 pt-2 whitespace-nowrap overflow-hidden">
                         {selectedComponent?.metadata?.slice(0, 4).map((meta, index) => (
                             <span key={index}>
                                 {meta.key}: {meta.value}
