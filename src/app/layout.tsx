@@ -16,16 +16,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="fr">
-        <body>
-        <main>{children}</main>
-        <Toaster/>
-        <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4">
-            <Dock/>
-        </div>
-        <div className="sm:block lg:hidden md:hidden fixed bottom-5 right-5 mb-4">
-            <DockMobile/>
-        </div>
-        </body>
+            <body>
+                <main>{children}</main>
+                <Toaster />
+
+                <Dock />
+
+            </body>
         </html>
     );
 }

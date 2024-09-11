@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useState, useContext } from 'react';
-import {ComponentData, ComponentType, Config, ConfigContextType} from "@/components/component/component/admin/types";
+import { ComponentData, ComponentType, Config, ConfigContextType } from "@/components/component/component/admin/types";
 
 const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
 
