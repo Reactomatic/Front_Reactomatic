@@ -116,7 +116,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                 } else {
                     const componentsFilteredByCompatibilities = componentsFiltered.filter((component: ComponentData) => {
                         return Object.entries(requirements).every(([composantType, metadataKey]) => {
-                            console.log("composantType", composantType);
+//                             console.log("composantType", composantType);
                             const componentType = composantType as ComponentType;
 
                             const selectedComponent = config[componentType];
@@ -125,14 +125,15 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                             const configMetaRequired = selectedComponent.metadata?.find(el => el.key === metadataKey);
                             if (!configMetaRequired) return false;
 
-                            console.log("metadataKey", metadataKey)
-                            console.log("componentKey", componentType)
+//                             console.log("metadataKey", metadataKey)
+//                             console.log("componentKey", componentType)
                             const componentMetaValue = component.metadata?.find(el => el.key === metadataKey);
                             if (!componentMetaValue) return false;
 
-                            console.log(configMetaRequired.value)
-                            console.log(componentMetaValue.value)
-                            console.log(configMetaRequired.value === componentMetaValue.value)
+//                             console.log(configMetaRequired.value)
+//                             console.log(componentMetaValue.value)
+//                             console.log(configMetaRequired.value === componentMetaValue.value)
+
                             return configMetaRequired.value === componentMetaValue.value;
                         });
                     });
@@ -188,7 +189,6 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                         <Popover.Content className="p-4 bg-white dark:bg-neutral-800 rounded-lg shadow-lg">
                             <h3 className="font-bold text-sm mb-2">Filtres</h3>
 
-                            {/* Filtre par prix */}
                             <div className="mb-4">
                                 <h4 className="font-semibold">Prix</h4>
                                 {priceRanges.map((range) => (
@@ -239,7 +239,12 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                                     onClick={() => onSelect(component)}
                                 >
                                     <p className="font-medium">{component.name}</p>
-                                    <p className="mt-1 font-bold">{component.price} €</p>
+                                    <p className="text-sm text-gray-500 dark:text-neutral-400 pt-2 whitespace-nowrap overflow-hidden">
+                                        {component?.metadata?.slice(0, 3).map((meta, index) => (
+                                            <span key={index}>
+                                                {meta.key}: {meta.value}{index < 3 && ' '}
+                                            </span>))}
+                                    </p>
                                 </div>
                             </HoverCardPrimitive.Trigger>
 

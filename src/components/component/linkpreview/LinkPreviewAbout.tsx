@@ -55,7 +55,7 @@ export function LinkPreviewAbout() {
                 </div>
 
                 <p className="font-bold text-center text-neutral-500 dark:text-neutral-400 md:text-4xl mt-20 mb-10">
-                    Applications développer avec
+                    Application développée avec
                 </p>
 
                 <div className={"grid grid-cols-6 w-full place-items-center place-content-center"}>
