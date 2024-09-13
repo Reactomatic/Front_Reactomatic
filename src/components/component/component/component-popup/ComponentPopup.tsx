@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import componentsData from '@/data/components.json';
-import { ComponentType, ComponentData } from "@/types/types";
+import { ComponentType, ComponentData, componentSchemas, configRequirements } from "@/types/types";
 import { Button } from "@/components/ui/button";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import * as Popover from "@radix-ui/react-popover";
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
+import { useConfig } from "@/context/ConfigContext";
+
 
 import useComponentStore from '@/stores/useComponentStore';
 
@@ -46,6 +47,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
     const { fetchComponents } = useComponentStore() as { fetchComponents: Function }
     const { toast } = useToast();
 
+    const { config } = useConfig();
 
 
     // const components = componentsData[type as keyof typeof componentsData] as ComponentData[] || [];
@@ -101,13 +103,46 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                     return component.category == type
                 });
 
-                setComponents(componentsFiltered.map((component: any) => {
-                    return {
-                        ...component,
-                        price: parseFloat(component.price)
-                    };
-                }));
+                const requirements = configRequirements[type]
+                console.log(requirements)
 
+                if (Object.keys(requirements).length == 0) {
+                    setComponents(componentsFiltered.map((component: any) => {
+                        return {
+                            ...component,
+                            price: parseFloat(component.price)
+                        };
+                    }));
+                } else {
+                    const componentsFilteredByCompatibilities = componentsFiltered.filter((component: ComponentData) => {
+                        return Object.entries(requirements).every(([composantType, metadataKey]) => {
+                            console.log(composantType);
+                            const componentKey = composantType as ComponentType;
+
+                            const selectedComponent = config[componentKey];
+                            if (!selectedComponent) return true;
+
+                            const configMetaRequired = selectedComponent.metadata?.find(el => el.key === metadataKey);
+                            if (!configMetaRequired) return false;
+
+                            const componentMetaValue = component.metadata?.find(el => el.key === metadataKey);
+                            if (!componentMetaValue) return false;
+
+                            return configMetaRequired.value === componentMetaValue.value;
+                        });
+                    });
+
+
+
+                    // HERE NEW FILTER
+
+                    setComponents(componentsFilteredByCompatibilities.map((component: any) => {
+                        return {
+                            ...component,
+                            price: parseFloat(component.price)
+                        };
+                    }));
+                }
             } else {
                 toast({
                     title: "Erreur de chargement",

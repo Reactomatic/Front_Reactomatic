@@ -25,10 +25,11 @@ export function DialogConfirmDelete({ onConfirm }: DialogConfirmDeleteProps) {
           <DialogClose>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
-
-          <Button variant="destructive" onClick={onConfirm}>
-            Delete
-          </Button>
+          <DialogClose>
+            <Button variant="destructive" onClick={onConfirm}>
+              Delete
+            </Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
