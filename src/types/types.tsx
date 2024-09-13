@@ -105,7 +105,7 @@ export const configRequirements: Record<ComponentType, Partial<Record<ComponentT
     motherboard: "socket"
   },
   motherboard: {
-    memory: "type",
+    memory: "memoryType",
     cpu: "socket",
     case: "formFactor"
   },
@@ -228,7 +228,7 @@ export const componentSchemas: Record<ComponentType, ComponentSchema> = {
     metadata: [
       { key: "capacity", label: "Capacité (Go)", type: "number" },
       { key: "speed", label: "Vitesse (MHz)", type: "number" },
-      { key: "type", label: "Type", type: "text" },
+      { key: "memoryType", label: "Type de mémoire", type: "text" },
     ],
   },
   monitor: {
