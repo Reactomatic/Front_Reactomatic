@@ -105,32 +105,44 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
 
                 const requirements = configRequirements[type]
                 console.log(requirements)
-                const componentsFilteredByCompatibilities = componentsFiltered.filter((component: ComponentData) => {
-                    return Object.entries(requirements).some(([composantType, metadataKey]) => {
-                        const componentKey = composantType as ComponentType;
 
-                        const selectedComponent = config[componentKey];
-                        if (!selectedComponent) return true;
+                if (Object.keys(requirements).length == 0) {
+                    setComponents(componentsFiltered.map((component: any) => {
+                        return {
+                            ...component,
+                            price: parseFloat(component.price)
+                        };
+                    }));
+                } else {
+                    const componentsFilteredByCompatibilities = componentsFiltered.filter((component: ComponentData) => {
+                        return Object.entries(requirements).every(([composantType, metadataKey]) => {
+                            console.log(composantType);
+                            const componentKey = composantType as ComponentType;
 
-                        const configMetaRequired = selectedComponent.metadata?.find(el => el.key === metadataKey);
-                        if (!configMetaRequired) return false;
+                            const selectedComponent = config[componentKey];
+                            if (!selectedComponent) return true;
 
-                        const componentMetaValue = component.metadata?.find(el => el.key === metadataKey);
-                        if (!componentMetaValue) return false;
+                            const configMetaRequired = selectedComponent.metadata?.find(el => el.key === metadataKey);
+                            if (!configMetaRequired) return false;
 
-                        return configMetaRequired.value === componentMetaValue.value;
+                            const componentMetaValue = component.metadata?.find(el => el.key === metadataKey);
+                            if (!componentMetaValue) return false;
+
+                            return configMetaRequired.value === componentMetaValue.value;
+                        });
                     });
-                });
 
-                // HERE NEW FILTER
 
-                setComponents(componentsFilteredByCompatibilities.map((component: any) => {
-                    return {
-                        ...component,
-                        price: parseFloat(component.price)
-                    };
-                }));
 
+                    // HERE NEW FILTER
+
+                    setComponents(componentsFilteredByCompatibilities.map((component: any) => {
+                        return {
+                            ...component,
+                            price: parseFloat(component.price)
+                        };
+                    }));
+                }
             } else {
                 toast({
                     title: "Erreur de chargement",
