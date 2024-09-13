@@ -107,7 +107,7 @@ export const configRequirements: Record<ComponentType, Partial<Record<ComponentT
   motherboard: {
     cpu: "socket",
     memory: "type",
-
+    case: "formFactor"
   },
   video_card: {},
   power_supply: {},
