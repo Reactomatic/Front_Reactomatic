@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import { Edit3, Save } from 'lucide-react';
 import { useConfig } from "@/context/ConfigContext";
+import { useToast } from "@/components/ui/use-toast"
 
-
-// interface EditableTitleProps {
-//     initialTitle: string;
-//     onTitleChange: (newTitle: string) => void;
-// }
 
 export const EditableTitle = () => {
 
     const { title, setTitle } = useConfig();
-
+    const { toast } = useToast()
     const [isEditing, setIsEditing] = useState(false);
-    // const [title, setTitle] = useState(initialTitle);
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value.length <= 25) {
@@ -24,11 +19,15 @@ export const EditableTitle = () => {
     const handleSave = () => {
         setIsEditing(false);
         setTitle(title);
+        toast({
+            title: "Configuration Sauvegardé !",
+            description: "Tu retrouveras ta configuration dans le même état",
+        });
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
-            handleSave();
+            setIsEditing(false);
         }
     };
 
@@ -47,14 +46,14 @@ export const EditableTitle = () => {
                 />
             )}
             <button
-                onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
+                onClick={() => (isEditing ? setIsEditing(false) : setIsEditing(true))}
                 className="p-2"
             >
                 <Edit3
                     className="h-7 w-7 hover:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-300" />
             </button>
             <button
-                onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
+                onClick={() => handleSave()}
                 className=""
             >
                 <Save className="h-7 w-7 hover:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-300" />

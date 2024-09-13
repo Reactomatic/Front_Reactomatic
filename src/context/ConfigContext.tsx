@@ -76,8 +76,14 @@ export const ConfigProvider: React.FC<{ id: string | null; children: React.React
     };
 
     const getTotalPrice = () => {
-        return Object.values(config).reduce((total, component) => total + (component?.price || 0), 0);
+        const total = Object.values(config).reduce((total, component) => {
+            const price = component?.price ? parseFloat(String(component.price)) : 0;
+            return total + price;
+        }, 0);
+        return parseFloat(total.toFixed(2));
     };
+
+
 
     const [title, setStateTitle] = useState('Ma configuration');
 

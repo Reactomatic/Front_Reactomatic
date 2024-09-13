@@ -82,7 +82,7 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
         <>
           {configurations.map((config, index) => (
             <Card key={index} onClick={() => onConfigSelect(config.id)}>
-              <div className="flex items-center justify-between p-4 border rounded-md">
+              <div className="dark:bg-neutral-800 flex items-center justify-between p-4 dark:border dark:border-neutral-700  shadow-md rounded-md">
                 <div>{config.name}</div>
                 <div className="flex items-center space-x-2">
                   <Button variant="ghost" size="icon" className="rounded-full">
@@ -96,5 +96,5 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
         </>
       )}
     </div>
-  );
+  )
 }

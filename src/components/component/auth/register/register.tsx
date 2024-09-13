@@ -91,7 +91,7 @@ export function Register() {
           </p>
         </div>
         <Card>
-          <CardContent className="space-y-6 px-6 py-8">
+          <CardContent className="space-y-6 px-6 py-8 dark:bg-neutral-800 rounded-md dark:border dark:border-neutral-700">
             <Form {...form}>
               <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
@@ -101,7 +101,7 @@ export function Register() {
                     <FormItem>
                       <FormLabel>Prénom</FormLabel>
                       <FormControl>
-                        <Input {...field} autoComplete="firstName" placeholder="John" />
+                        <Input className={"dark:border-neutral-700"} {...field} autoComplete="firstName" placeholder="John" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -115,7 +115,7 @@ export function Register() {
                     <FormItem>
                       <FormLabel>Nom</FormLabel>
                       <FormControl>
-                        <Input {...field} autoComplete="lastName" placeholder="Doe" />
+                        <Input className={"dark:border-neutral-700"} {...field} autoComplete="lastName" placeholder="Doe" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -129,7 +129,7 @@ export function Register() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input {...field} autoComplete="email" placeholder="john.doe@example.com" />
+                        <Input className={"dark:border-neutral-700"} {...field} autoComplete="email" placeholder="john.doe@example.com" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -142,7 +142,7 @@ export function Register() {
                     <FormItem>
                       <FormLabel>Mot de passe</FormLabel>
                       <FormControl>
-                        <Input type="password" {...field} autoComplete="new-password" />
+                        <Input className={"dark:border-neutral-700"} type="password" {...field} autoComplete="new-password" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -155,7 +155,7 @@ export function Register() {
                     <FormItem>
                       <FormLabel>Confirmez le mot de passe</FormLabel>
                       <FormControl>
-                        <Input type="password" {...field} autoComplete="new-password" />
+                        <Input className={"dark:border-neutral-700"} type="password" {...field} autoComplete="new-password" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
