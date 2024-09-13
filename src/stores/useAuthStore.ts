@@ -2,8 +2,9 @@ import { create } from 'zustand';
 import axios from '@/lib/axiosInstance';
 import Cookies from 'js-cookie';  // Importer js-cookie
 
-const localUser: any = localStorage.getItem('user')
-const localToken = localStorage.getItem('token')
+const localUser: any = typeof window !== 'undefined' ? localStorage.getItem('user') : null;
+const localToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+
 const useAuthStore = create((set) => ({
   user: localUser || null,
   token: localToken || null as string | null,
