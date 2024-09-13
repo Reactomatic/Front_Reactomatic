@@ -48,7 +48,7 @@ export function ResetPassword() {
 
     const result = await resetPassword(data.password, resetToken);
 
-    if (result.status === 200) {
+    if (result.status === 201) {
       toast({
         title: "Mot de passe réinitialisé avec succès !",
         description: "Vous pouvez désormais vous connecter avec votre nouveau mot de passe.",
