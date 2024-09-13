@@ -16,11 +16,10 @@ import Link from "next/link";
 // Schema validation using zod
 const LoginSchema = z.object({
   email: z.string().email({ message: "Un email valide est requis." }),
-  password: z.string().min(6, { message: "Le mot de passe fait minimum 6 caractères." }),
 });
 
-export function Login() {
-  const { login } = useAuthStore() as { login: Function };
+export function ResetPassword() {
+  const { forgotPassword } = useAuthStore() as { forgotPassword: Function };
   const { toast } = useToast();
   const router = useRouter();
 
@@ -28,34 +27,26 @@ export function Login() {
     resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   });
 
   interface LoginFormData {
     email: string;
-    password: string;
   }
 
   async function onSubmit(data: LoginFormData) {
-    const result = await login(data.email, data.password);
+    const result = await forgotPassword(data.email);
 
-    if (result.status === 200) {
+    if (result.status === 201) {
       toast({
-        title: "Un plaisir de te revoir  " + result.data.user.firstName + " !",
-        description: "Tu vas être redirigé.",
+        title: "Un mail à été envoyé à l'addresse suivante " + data.email + " !",
+        description: "Il ne te reste plus qu'à changer ton mot de passe.",
       });
 
       router.push('/')
-    } else if (result.status === 400) {
+    } else {
       toast({
-        title: "Erreur d'inscription",
-        description: result.message,
-        variant: "destructive",
-      });
-    } else if (result.status === 401) {
-      toast({
-        title: "Mot de passe incorrect",
+        title: "Un erreur est survenu",
         description: result.message,
         variant: "destructive",
       });
@@ -67,12 +58,12 @@ export function Login() {
       <div className="w-full max-w-md space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
-            Se connecter
+            Réinitialiser son mot de passe
           </h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">
             Ou{" "}
-            <Link href="/register" className="font-medium text-primary hover:text-primary/90" prefetch={false}>
-              se créer un nouveau compte
+            <Link href="/login" className="font-medium text-primary hover:text-primary/90" prefetch={false}>
+              se connecter
             </Link>
           </p>
         </div>
@@ -93,26 +84,9 @@ export function Login() {
                     </FormItem>
                   )}
                 />
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className="flex items-center justify-between">
-                        <FormLabel>Mot de passe</FormLabel>
-                        <Link href="/forgot-password" className="text-sm font-medium text-primary hover:underline" prefetch={false}>
-                          Mot de passe oublié?
-                        </Link>
-                      </div>
-                      <FormControl>
-                        <Input type="password" {...field} autoComplete="current-password" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+
                 <Button type="submit" className="w-full">
-                  Se connecter
+                  Réinitialiser
                 </Button>
               </form>
             </Form>
