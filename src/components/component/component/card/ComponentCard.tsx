@@ -7,9 +7,9 @@ import {
     ComponentData,
     PriceByRetailer,
 } from "@/types/types";
-import Amazon from '@/assets/images/amazon-removebg-preview.png';
+import Amazon from '@/assets/images/Amazon_Symbol_15.svg';
 import Ldlc from '@/assets/images/ldlc-removebg-preview.png';
-import Material from '@/assets/images/material-removebg-preview.png';
+import Cybertek from '@/assets/images/cybertek.png';
 import Image from "next/image";
 import { ComponentPopup } from "@/components/component/component/component-popup/ComponentPopup";
 
@@ -19,46 +19,65 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
     const selectedComponent = config[type as unknown as keyof typeof config];
 
     const renderProviderPrice = (pricesByRetailer: PriceByRetailer[]) => {
-        return pricesByRetailer.map(({ retailer, price }, index) => (
-            <div key={index}
-                className="grid grid-cols-3 gap-2 place-items-center bg-neutral-800 text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md">
-                {retailer === "Amazon" && (
-                    <Image
-                        priority
-                        src={Amazon}
-                        height={25}
-                        width={25}
-                        alt="Amazon Logo"
-                        className="pr-1"
-                    />
-                )}
-                {retailer === "LDLC" && (
-                    <Image
-                        priority
-                        src={Ldlc}
-                        height={20}
-                        width={20}
-                        alt="LDLC Logo"
-                        className="pr-1"
-                    />
-                )}
-                {retailer === "Materiel.net" && (
-                    <Image
-                        priority
-                        src={Material}
-                        height={25}
-                        width={25}
-                        alt="Materiel.net Logo"
-                        className="pr-1"
-                    />
-                )}
-                <span className="font-semibold col-span-2 text-md dark:text-white">{price}€</span>
-            </div>
-        ));
+        const retailers = ["Amazon FR", "Amazon DE", "LDLC", "Cybertek"];
+
+        return retailers.map((retailer, index) => {
+            const priceData = pricesByRetailer.find((p) => p.retailer === retailer);
+
+            return (
+                <a
+                    href={priceData?.url || "#"}
+                    target="_blank"
+                    key={index}
+                    className={`grid grid-cols-3 gap-2 place-items-center bg-neutral-200 dark:bg-neutral-600 text-black dark:border py-2 px-2 rounded-md`}
+                >
+                    {retailer === "Amazon FR" || retailer === "Amazon DE" ? (
+                        <Image
+                            priority
+                            src={Amazon}
+                            height={25}
+                            width={25}
+                            alt="Amazon Logo"
+                            className="pr-1"
+                        />
+                    ) : retailer === "LDLC" ? (
+                        <Image
+                            priority
+                            src={Ldlc}
+                            height={20}
+                            width={20}
+                            alt="LDLC Logo"
+                            className="pr-1"
+                        />
+                    ) : retailer === "Cybertek" ? (
+                        <Image
+                            priority
+                            src={Cybertek}
+                            height={25}
+                            width={25}
+                            alt="Cybertek Logo"
+                            className="pr-1"
+                        />
+                    ) : null}
+
+                    {priceData ? (
+                        <span className="font-semibold col-span-2 text-md dark:text-white">{Math.round(priceData.price)}€</span>
+                    ) : (
+                        <span className="font-semibold col-span-2 text-md text-red-600 dark:text-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"
+                             className="lucide lucide-x mr-4 w-5 h-5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </span>
+                    )}
+                </a>
+            );
+        });
     };
+    ;
 
     return (
-        <div className="bg-white dark:bg-neutral-800 shadow-md rounded-lg p-4 min-h-56 border border-gray-300 dark:border-neutral-700">
+        <div
+            className="bg-white dark:bg-neutral-800 shadow-md rounded-lg p-4 min-h-56 border border-neutral-200 dark:border-neutral-700">
             <div className="flex flex-row items-center justify-between w-full">
                 <h2 className="text-xl font-semibold mb-2 capitalize">
                     {getComponentTypeDisplayName(type)}
@@ -133,13 +152,13 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
 export const getComponentTypeDisplayName = (type: ComponentType): string => {
     switch (type) {
         case "case_accessory":
-            return "Accessoire de boîtier";
+            return "Accessoires";
         case "case_fan":
-            return "Ventilateur de boîtier";
+            return "Ventilateurs";
         case "case":
-            return "Boîtier";
+            return "Boitier";
         case "cpu_cooler":
-            return "Ventilateur de processeur";
+            return "Ventirad";
         case "cpu":
             return "Processeur";
         case "external_hard_drive":
@@ -147,7 +166,7 @@ export const getComponentTypeDisplayName = (type: ComponentType): string => {
         case "internal_hard_drive":
             return "Disque dur interne";
         case "fan_controller":
-            return "Contrôleur de ventilateur";
+            return "Fan Contrôleur";
         case "headphones":
             return "Casque";
         case "keyboard":

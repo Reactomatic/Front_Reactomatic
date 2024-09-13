@@ -118,8 +118,7 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
           ))}
           <Button className="w-full rounded-md" onClick={() => handleCreate()}>Ajouter une configuration</Button>
         </>
-      )
-      }
-    </div >
-  );
+      )}
+    </div>
+  )
 }

@@ -77,7 +77,7 @@ export function Login() {
           </p>
         </div>
         <Card>
-          <CardContent className="space-y-6 px-6 py-8">
+          <CardContent className="space-y-6 px-6 py-8 dark:bg-neutral-900 rounded-md dark:border dark:border-neutral-700">
             <Form {...form}>
               <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
@@ -87,7 +87,7 @@ export function Login() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input {...field} autoComplete="email" placeholder="john.doe@example.com" />
+                        <Input className={"dark:border-neutral-700"} {...field} autoComplete="email" placeholder="john.doe@example.com" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -105,7 +105,7 @@ export function Login() {
                         </Link>
                       </div>
                       <FormControl>
-                        <Input type="password" {...field} autoComplete="current-password" />
+                        <Input className={"dark:border-neutral-700"} type="password" {...field} autoComplete="current-password" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

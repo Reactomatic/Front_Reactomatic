@@ -32,7 +32,7 @@ export default function Ticket() {
                     <span>Date:</span>
                     <span>{date}</span>
                 </div>
-                <div className="border-t border-b border-gray-300 py-2">
+                <div className="border-t border-b border-gray-300 py-2 max-h-60 overflow-auto">
                     <div className="flex justify-between font-bold">
                         <span>Description</span>
                         <span>Price</span>
@@ -40,7 +40,7 @@ export default function Ticket() {
                     {selectedItems.map((item, index) => (
                         <div key={index} className="flex justify-between space-x-2">
                             <span className="whitespace-nowrap overflow-hidden">{item.name}</span>
-                            <span>€{parseFloat(item.price).toFixed(2)}</span>
+                            <span>€{Math.round(item.price)}</span>
                         </div>
                     ))}
                 </div>
@@ -50,7 +50,7 @@ export default function Ticket() {
                 </div>
                 <div className="flex justify-between font-bold">
                     <span>TOTAL</span>
-                    <span>${total}</span>
+                    <span>${Math.round(total)}</span>
                 </div>
             </CardContent>
             <CardFooter className="flex flex-col items-center space-y-4">
