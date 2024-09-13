@@ -53,7 +53,6 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
         description: "Bon courage dans ta quête du PC parfait !",
       });
 
-      router.push('/');
     } else if (result.status === 400) {
       toast({
         title: "Erreur dans la création",
