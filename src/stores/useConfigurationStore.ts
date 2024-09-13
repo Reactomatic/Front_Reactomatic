@@ -63,7 +63,7 @@ const useConfigurationStore = create((set) => ({
 
   deleteConfiguration: async (id: string) => {
     try {
-      const response = await axios.delete(`/configurations/${id}`);
+      const response = await axios.delete(`/configurations/me/${id}`);
 
       return { status: response.status, data: response.data };
     } catch (error: any) {

@@ -12,6 +12,7 @@ const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
 
 export const ConfigProvider: React.FC<{ id: string | null; children: React.ReactNode }> = ({ id, children }) => {
     const { fetchConfigurationById, updateConfigurationUser } = useConfigurationStore() as { fetchConfigurationById: Function, updateConfigurationUser: Function };
+    const [loading, setLoading] = useState<boolean>(true);
     const { toast } = useToast();
     const router = useRouter();
 
@@ -65,14 +66,18 @@ export const ConfigProvider: React.FC<{ id: string | null; children: React.React
     };
 
     useEffect(() => {
-        if (id)
+        if (id) {
+            setLoading(true)
             handleFetchConfig();
+            setLoading(false)
+        }
     }, [id]);
 
     const setComponentSelection = (type: ComponentType, component: ComponentData | undefined) => {
         setConfig(prev => ({ ...prev, [type]: component }));
         if (id)
-            handleUpdateConfig();
+            if (loading == false)
+                handleUpdateConfig();
     };
 
     const getTotalPrice = () => {
@@ -84,7 +89,8 @@ export const ConfigProvider: React.FC<{ id: string | null; children: React.React
     const setTitle = (newTitle: any) => {
         setStateTitle(newTitle)
         if (id) {
-            handleUpdateConfig();
+            if (loading == false)
+                handleUpdateConfig();
         }
         else {
             toast({
