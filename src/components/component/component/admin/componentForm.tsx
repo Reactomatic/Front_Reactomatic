@@ -1,7 +1,7 @@
 // ComponentForm.tsx
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { ComponentData } from "@/components/component/component/admin/types";
+import { ComponentData } from "@/types/types";
 
 interface ComponentFormProps {
   data: Omit<ComponentData, "id" | "category" | "metadata">;

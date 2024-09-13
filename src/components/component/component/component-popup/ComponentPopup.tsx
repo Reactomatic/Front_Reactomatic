@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import componentsData from '@/data/components.json';
-import { ComponentType, ComponentData } from "@/components/component/component/admin/types";
+import { ComponentType, ComponentData } from "@/types/types";
 import { Button } from "@/components/ui/button";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import * as Popover from "@radix-ui/react-popover";
@@ -115,9 +115,6 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                     variant: "destructive",
                 });
             }
-
-            console.log(components)
-
         } catch (error: any) {
             throw new Error("Impossible de charger les données. Veuillez réessayer.");
         }

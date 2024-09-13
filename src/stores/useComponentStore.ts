@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import axios from '@/lib/axiosInstance';
-import { ComponentData } from '@/components/component/component/admin/types';
+import { ComponentData } from '@/types/types';
 
 const useComponentStore = create((set) => ({
   componentList: null,

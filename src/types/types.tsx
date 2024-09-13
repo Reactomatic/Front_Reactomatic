@@ -62,6 +62,8 @@ export type ConfigContextType = {
   config: Config;
   setComponentSelection: (type: ComponentType, component: ComponentData | undefined) => void;
   getTotalPrice: () => number;
+  title: string
+  setTitle: any
 };
 
 export type Config = {

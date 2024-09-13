@@ -3,7 +3,7 @@
 import React from 'react';
 import { useConfig } from "@/context/ConfigContext";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
-import {ComponentData} from "@/components/component/component/admin/types";
+import { ComponentData } from "@/types/types";
 
 export default function Ticket() {
     const { config, getTotalPrice } = useConfig();
@@ -40,9 +40,7 @@ export default function Ticket() {
                     {selectedItems.map((item, index) => (
                         <div key={index} className="flex justify-between space-x-2">
                             <span className="whitespace-nowrap overflow-hidden">{item.name}</span>
-
                             <span>€{parseFloat(item.price).toFixed(2)}</span>
-
                         </div>
                     ))}
                 </div>

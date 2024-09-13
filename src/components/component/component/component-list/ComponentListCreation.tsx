@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentCard } from "@/components/component/component/card/ComponentCard";
-import { ComponentType } from "@/components/component/component/admin/types";
+import { ComponentType } from "@/types/types";
 
 export const ComponentListCreation: React.FC = () => {
     /*const componentTypes: ComponentType[] = [
