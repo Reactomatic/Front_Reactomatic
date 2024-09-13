@@ -75,6 +75,28 @@ const useAuthStore = create((set) => ({
     Cookies.remove('token');
   },
 
+  forgotPassword: async (email: string) => {
+    try {
+      const response = await axios.post('/auth/forgot-password', { email });
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('Forgot password failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
+    }
+  },
+
+  resetPassword: async (password: string, token: string) => {
+    try {
+      const response = await axios.post('/auth/reset-password', { newPassword:password, token });
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('Reset password failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
+    }
+  },
+
   initializeAuth: () => {
     const token = Cookies.get('token');  // Récupérer le token depuis les cookies ou localStorage
     if (token) {
