@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useRouter } from 'next/navigation';
 import useConfigurationStore from '@/stores/useConfigurationStore';
 import { DialogConfirmDelete } from '@/components/component/other/dialog-confirm-delete';
@@ -12,11 +12,10 @@ interface ConfigurationListProps {
 }
 
 export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
-  const router = useRouter();
   const { fetchConfigurationsUser, deleteConfiguration, createConfiguration } = useConfigurationStore() as { fetchConfigurationsUser: Function, deleteConfiguration: Function, createConfiguration: Function };
   const [dialogDelete, setDialogDelete] = useState<string | null>('');
   const [configurations, setConfigurations] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Ajout de l'état loading
+  const [loading, setLoading] = useState<boolean>(true);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -27,7 +26,11 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
         if (configs.status === 200) {
           setConfigurations(configs.data || []); // Set state to avoid re-fetching
         } else {
-          //toast
+          toast({
+            title: "Erreur lors de la récupérationd e vos configuration",
+            description: "",
+            variant: "destructive",
+          });
         }
       } catch (error) {
         // Gestion d'erreur
@@ -37,10 +40,29 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
   const handleDelete = async (id: string) => {
-    await deleteConfiguration(id);
+    const result = await deleteConfiguration(id);
+    if (result.status === 201) {
+      toast({
+        title: "Configuration commencée !",
+        description: "Bon courage dans ta quête du PC parfait !",
+      });
+
+    } else if (result.status === 400) {
+      toast({
+        title: "Erreur dans la création",
+        description: result.message,
+        variant: "destructive",
+      });
+    } else if (result.status === 401) {
+      toast({
+        title: "Tu ne peux pas créer de configuration!",
+        description: result.message,
+        variant: "destructive",
+      });
+    }
     setDialogDelete(null);
   }
 
@@ -80,20 +102,24 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
       ) : (
         <>
           {configurations.map((config, index) => (
-            <Card key={index} onClick={() => onConfigSelect(config.id)}>
-              <div className="flex items-center justify-between p-4 border rounded-md">
-                <div>{config.name}</div>
-                <div className="flex items-center space-x-2">
-                  <Button variant="ghost" size="icon" className="rounded-full">
-                    <DialogConfirmDelete onConfirm={() => handleDelete(config.id)} />
-                  </Button>
-                </div>
+            <Card key={index} >
+              <div className="flex items-center space-x-2">
+                <CardContent className="flex items-center w-full justify-between p-4 border rounded-md" onClick={() => onConfigSelect(config.id)}>
+
+                  {/* <div className="flex items-center justify-between p-4 border rounded-md"> */}
+                  <div>{config.name}</div>
+                  {/* </div> */}
+                </CardContent>
+                <Button variant="ghost" size="icon" className="rounded-full">
+                  <DialogConfirmDelete onConfirm={() => handleDelete(config.id)} />
+                </Button>
               </div>
             </Card>
           ))}
           <Button className="w-full rounded-md" onClick={() => handleCreate()}>Ajouter une configuration</Button>
         </>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }

@@ -100,6 +100,46 @@ export interface ComponentSchema {
   metadata: { key: string; label: string; type: string }[];
 }
 
+export const configRequirements: Record<ComponentType, Partial<Record<ComponentType, string>>> = {
+  cpu: {
+    motherboard: "socket"
+  },
+  motherboard: {
+    cpu: "socket",
+    memory: "type",
+
+  },
+  video_card: {},
+  power_supply: {},
+  memory: {
+    motherboard: "memoryType"
+  },
+  internal_hard_drive: {},
+  case: {
+    motherboard: "formFactor"
+  },
+  external_hard_drive: {},
+  case_accessory: {},
+  case_fan: {},
+  cpu_cooler: {},
+  fan_controller: {},
+  headphones: {},
+  keyboard: {},
+  monitor: {},
+  mouse: {},
+  optical_drive: {},
+  os: {},
+  sound_card: {},
+  speakers: {},
+  thermal_paste: {},
+  ups: {},
+  webcam: {},
+  wired_network_card: {},
+  wireless_network_card: {},
+};
+
+
+
 export const componentSchemas: Record<ComponentType, ComponentSchema> = {
   case_accessory: {
     name: "Accessoire de Boîtier",
@@ -140,7 +180,9 @@ export const componentSchemas: Record<ComponentType, ComponentSchema> = {
       { key: "baseClock", label: "Fréquence de Base (GHz)", type: "number" },
       { key: "boostClock", label: "Fréquence Boost (GHz)", type: "number" },
       { key: "tdp", label: "TDP (W)", type: "number" },
+      { key: "socket", label: "Socket", type: "text" },
     ],
+
   },
   external_hard_drive: {
     name: "Disque Dur Externe",
@@ -203,6 +245,7 @@ export const componentSchemas: Record<ComponentType, ComponentSchema> = {
       { key: "formFactor", label: "Format", type: "text" },
       { key: "chipset", label: "Chipset", type: "text" },
       { key: "socket", label: "Socket", type: "text" },
+      { key: "memoryType", label: "Type de mémoire", type: "text" },
     ],
   },
   mouse: {
