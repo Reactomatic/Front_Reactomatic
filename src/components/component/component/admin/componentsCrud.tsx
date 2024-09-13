@@ -8,7 +8,7 @@ import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { MetadataForm } from "./metadataForm";
 import { ComponentForm } from "./componentForm";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ComponentData, ComponentType } from "@/components/component/component/admin/types";
+import { ComponentData, ComponentType } from "@/types/types";
 import useComponentStore from "@/stores/useComponentStore";
 import { useToast } from "@/components/ui/use-toast";
 

@@ -30,15 +30,6 @@ export const Dock = () => {
       href: "/",
     },
 
-    // Configurations
-    {
-      title: "Mes Configurations",
-      icon: (
-        <IconLayoutList className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/configurations",
-    },
-
     // Create Configuration
     {
       title: "Créer une Configuration",

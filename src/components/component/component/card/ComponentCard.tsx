@@ -6,7 +6,7 @@ import {
     ComponentType,
     ComponentData,
     PriceByRetailer,
-} from "@/components/component/component/admin/types";
+} from "@/types/types";
 import Amazon from '@/assets/images/amazon-removebg-preview.png';
 import Ldlc from '@/assets/images/ldlc-removebg-preview.png';
 import Material from '@/assets/images/material-removebg-preview.png';
@@ -21,7 +21,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
     const renderProviderPrice = (pricesByRetailer: PriceByRetailer[]) => {
         return pricesByRetailer.map(({ retailer, price }, index) => (
             <div key={index}
-                 className="grid grid-cols-3 gap-2 place-items-center bg-neutral-800 text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md">
+                className="grid grid-cols-3 gap-2 place-items-center bg-neutral-800 text-white dark:bg-neutral-600 dark:border py-2 px-2 rounded-md">
                 {retailer === "Amazon" && (
                     <Image
                         priority
@@ -108,8 +108,8 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                     onClick={() => setIsPopupOpen(true)}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
-                         className="lucide lucide-circle-minus h-10 w-10 bg-green rounded-md cursor-pointer text-white p-1 shadow-xl">
+                        stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+                        className="lucide lucide-circle-minus h-10 w-10 bg-green rounded-md cursor-pointer text-white p-1 shadow-xl">
                         <path d="M5 12h14" />
                         <path d="M12 5v14" />
                     </svg>

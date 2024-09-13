@@ -1,7 +1,7 @@
 // MetadataForm.tsx
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { ComponentType, ComponentSchema, componentSchemas } from "@/components/component/component/admin/types";
+import { ComponentType, ComponentSchema, componentSchemas } from "@/types/types";
 
 interface MetadataFormProps {
   componentType: ComponentType;

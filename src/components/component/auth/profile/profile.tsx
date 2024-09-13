@@ -7,7 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import useUserStore from "@/stores/useUserStore";
 import useAuthStore from "@/stores/useAuthStore";
-// import { toast } from "@/components/ui/toast";
+import { useRouter } from 'next/navigation'
+
+import { useToast } from "@/components/ui/use-toast";
 
 
 export default function ProfileComponent() {
@@ -19,7 +21,9 @@ export default function ProfileComponent() {
     updateUser: Function;
     deleteUser: Function;
   };
-  const { user } = useAuthStore() as { user: UserFormData }
+  const { user, logout } = useAuthStore() as { user: UserFormData, logout: Function }
+  const router = useRouter();
+  const { toast } = useToast();
 
   interface UserFormData {
     id: string;
@@ -37,7 +41,11 @@ export default function ProfileComponent() {
         const data = await fetchUser(user.id);
         setUserData(user);
       } catch (error) {
-        // toast.error("Error fetching user data");
+        toast({
+          title: "Impossible d'effectuer cette action",
+          description: 'Réssayer plus tard.',
+          variant: "destructive",
+        });
       } finally {
         setLoading(false);
       }
@@ -49,18 +57,52 @@ export default function ProfileComponent() {
     e.preventDefault();
     try {
       await updateUser(userData);
-      // toast.success("Profile updated successfully");
+      toast({
+        title: "Votre compte utilisateur à été détruit",
+        description: 'Réssayer plus tard.',
+        variant: "destructive",
+      });
     } catch (error) {
-      // toast.error("Error updating profile");
+      toast({
+        title: "Impossible d'effectuer cette action",
+        description: 'Réssayer plus tard.',
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleDisconnected = async () => {
+    try {
+      await logout();
+      router.push('/')
+      toast({
+        title: "Bienvenu inconnu",
+        description: 'Vous avez été déconnécté avec succés',
+        variant: "destructive",
+      });
+    } catch (error) {
+      toast({
+        title: "Impossible d'effectuer cette action",
+        description: 'Réssayer plus tard.',
+        variant: "destructive",
+      });
     }
   };
 
   const handleDelete = async () => {
     try {
       await deleteUser(userData.id);
-      // toast.success("Profile deleted successfully");
+      toast({
+        title: "Votre compte utilisateur à été détruit",
+        description: 'Réssayer plus tard.',
+        variant: "destructive",
+      });
     } catch (error) {
-      // toast.error("Error deleting profile");
+      toast({
+        title: "Impossible d'effectuer cette action",
+        description: 'Réssayer plus tard.',
+        variant: "destructive",
+      });
     }
   };
 
@@ -89,6 +131,16 @@ export default function ProfileComponent() {
                   >
                     <FilePenIcon className="h-5 w-5" />
                     Editer mon profil
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onClick={() => setActiveSection("disconnectProfile")}
+                    className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                  >
+                    <TrashIcon className="h-5 w-5" />
+                    Se déconnecter
                   </a>
                 </li>
                 <li>
@@ -161,6 +213,23 @@ export default function ProfileComponent() {
                       </Button>
                     </div>
                   </form>
+                </div>
+              )}
+
+              {activeSection === "disconnectProfile" && (
+                <div className="rounded-lg border bg-background p-4 md:p-6">
+                  <h3 className="text-lg font-medium">Se déconnecter de mon compte</h3>
+                  <div className="mt-4 grid gap-4">
+                    <p>Je souhaite mon déconncter de mon compte.</p>
+                    <div className="flex justify-end gap-2">
+                      <Button variant="outline" onClick={() => setActiveSection("profile")}>
+                        Non
+                      </Button>
+                      <Button variant="destructive" onClick={handleDisconnected} disabled={loading}>
+                        Se déconncter
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               )}
 

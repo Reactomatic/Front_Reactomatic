@@ -1,62 +1,74 @@
 import { create } from 'zustand';
 import axios from '@/lib/axiosInstance';
-import { Configuration } from '@/type';
+import {} from '@/types/types';
 
 const useConfigurationStore = create((set) => ({
-  configurationList: null,
 
-  fetchConfigurations: async () => {
+  createConfiguration: async (name: string, componentIds: String[]) => {
     try {
-      // const response = await axios.get('/configuration/list');
-      // const { configurations } = response.data;
+      const response = await axios.post('/configurations', { name, componentIds: componentIds});
+      const { configuration } = response.data;
 
-      // i want a list of configurations
-      const jsonMock: Configuration[] = [
-        {
-          id: '1',
-          name: 'Config 1',
-          price: 1000,
-        },
-        {
-          id: '2',
-          name: 'Config 2',
-          price: 2000,
-        },
-        {
-          id: '3',
-          name: 'Config 3',
-          price: 3000,
-        },
-
-      ]
-      const configurations = jsonMock;
-
-      set({
-        configurationList: configurations,
-      });
-
-      return configurations
-    } catch (error) {
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
       console.error('fetchConfigurations failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },
 
-  createConfiguration: async (name: string) => {
+  fetchConfigurationsAll: async () => {
     try {
-      const response = await axios.post('/configuration/create', { name });
+      const response = await axios.get('/configurations');
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('fetchConfigurations failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
+    }
+  },
+
+  fetchConfigurationsUser: async () => {
+    try {
+      const response = await axios.get(`/configurations/me`);
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('fetchConfigurations failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
+    }
+  },
+
+  fetchConfigurationById: async (id: string) => {
+    try {
+      const response = await axios.get(`/configurations/${id}`);
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('fetchConfigurations failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
+    }
+  },
+
+  updateConfigurationUser: async (id: string, name: string, componentIds: String[]) => {
+    try {
+      const response = await axios.put(`/configurations/me/${id}`, { name, componentIds: componentIds});
       const { configuration } = response.data;
 
-      return configuration
-    } catch (error) {
-      console.error('createConfiguration failed:', error);
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('fetchConfigurations failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   },
 
   deleteConfiguration: async (id: string) => {
     try {
-      await axios.delete(`/configuration/${id}`);
-    } catch (error) {
-      console.error('deleteConfiguration failed:', error);
+      const response = await axios.delete(`/configurations/${id}`);
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('fetchConfigurations failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
     }
   }
 

@@ -2,13 +2,16 @@ import { create } from 'zustand';
 import axios from '@/lib/axiosInstance';
 import Cookies from 'js-cookie';  // Importer js-cookie
 
+const localUser: any = localStorage.getItem('user')
+const localToken = localStorage.getItem('token')
 const useAuthStore = create((set) => ({
-  user: null,
-  token: null as string | null,
-  isAuthenticated: false as boolean,
-  isAdmin: false as boolean,
-
+  user: localUser || null,
+  token: localToken || null as string | null,
+  isAuthenticated: localUser != undefined || false as boolean,
+  isAdmin: (localUser && localUser.role === 'admin') as boolean,
+  
   register: async (email: string, password: string, firstName: string, lastName: string) => {
+   
     try {
       const response = await axios.post('/auth/register', { email, password, firstName, lastName });
       const { user, token } = response.data;
@@ -22,6 +25,7 @@ const useAuthStore = create((set) => ({
 
       // Stocker dans localStorage et cookies
       localStorage.setItem('token', token);
+      localStorage.setItem('user', user);
       Cookies.set('token', token, { expires: 7 });  // Le token expire après 7 jours
 
       return { status: response.status, data: response.data };
@@ -45,6 +49,7 @@ const useAuthStore = create((set) => ({
 
       // Stocker dans localStorage et cookies
       localStorage.setItem('token', access_token);
+      localStorage.setItem('user', user);
       Cookies.set('token', access_token, { expires: 7 });  // Le token expire après 7 jours
 
       return { status: response.status, data: response.data };
@@ -64,6 +69,8 @@ const useAuthStore = create((set) => ({
 
     // Supprimer le token du localStorage et des cookies
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
     Cookies.remove('token');
   },
 
