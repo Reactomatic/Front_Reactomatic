@@ -21,7 +21,7 @@ const ComponentHoverPreview: React.FC<{ component: ComponentData }> = ({ compone
         <h3 className="font-bold text-lg mb-2">{component.name}</h3>
         <p className="text-sm text-gray-600 dark:text-neutral-500">{component.brand}</p>
         <div className="text-sm mt-2">
-            {component?.metadata?.slice(0, 4).map((meta, index) => (
+            {component?.metadata?.map((meta, index) => (
                 <p key={index}>
                     <strong>{meta.key}:</strong> {meta.value}
                 </p>

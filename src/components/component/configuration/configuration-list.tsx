@@ -70,11 +70,13 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
     const result = await createConfiguration("Ma configuration", []);
 
     if (result.status === 201) {
+      const newConfig = result.data;
+      setConfigurations((prevConfigs) => [...prevConfigs, newConfig]);
+
       toast({
         title: "Configuration commencée !",
         description: "Bon courage dans ta quête du PC parfait !",
       });
-
     } else if (result.status === 400) {
       toast({
         title: "Erreur dans la création",
@@ -103,14 +105,11 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
         <>
           {configurations.map((config, index) => (
             <Card key={index} >
-              <div className="flex items-center space-x-2">
-                <CardContent className="flex items-center w-full justify-between p-4 border rounded-md" onClick={() => onConfigSelect(config.id)}>
-
-                  {/* <div className="flex items-center justify-between p-4 border rounded-md"> */}
+              <div className="flex items-center space-x-2 px-2 dark:bg-neutral-800 rounded-md dark:border-2 dark:border-neutral-700">
+                <CardContent className="flex items-center w-full justify-between p-4 rounded-md" onClick={() => onConfigSelect(config.id)}>
                   <div>{config.name}</div>
-                  {/* </div> */}
                 </CardContent>
-                <Button variant="ghost" size="icon" className="rounded-full">
+                <Button variant="ghost" size="icon" className="dark:bg-red-800 dark:hover:bg-red-900 bg-red-600 text-white hover:bg-red-800 hover:text-white">
                   <DialogConfirmDelete onConfirm={() => handleDelete(config.id)} />
                 </Button>
               </div>
