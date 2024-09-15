@@ -28,7 +28,7 @@ const ComponentHoverPreview: React.FC<{ component: ComponentData }> = ({ compone
             ))}
         </div>
         <div className="mt-4">
-            {component?.priceByRetailer?.map(({ retailer, price }, index) => (
+            {component?.priceByRetailer?.slice(0, 3).map(({ retailer, price }, index) => (
                 <div key={index} className="flex justify-between">
                     <span>{retailer}</span>
                     <span>{price}€</span>
