@@ -50,7 +50,7 @@ export default function Ticket() {
                 </div>
                 <div className="flex justify-between font-bold">
                     <span>TOTAL</span>
-                    <span>${Math.round(total)}</span>
+                    <span>€{Math.round(total)}</span>
                 </div>
             </CardContent>
             <CardFooter className="flex flex-col items-center space-y-4">
