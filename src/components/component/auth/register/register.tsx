@@ -51,6 +51,7 @@ export function Register() {
 
   async function onSubmit(data: RegisterFormData) {
     const result = await registerUser(data.email, data.password, data.firstName, data.lastName);
+    console.log(result)
     if (result.status === 201) {
       toast({
         title: "Bienvenue " + data.firstName + " !",
