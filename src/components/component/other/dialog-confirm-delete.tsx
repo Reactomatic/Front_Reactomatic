@@ -23,11 +23,11 @@ export function DialogConfirmDelete({ onConfirm }: DialogConfirmDeleteProps) {
         </div>
         <DialogFooter className="flex justify-end gap-4">
           <DialogClose>
-            <Button variant="outline">Cancel</Button>
+            <Button variant="outline">Annuler</Button>
           </DialogClose>
           <DialogClose>
             <Button variant="destructive" onClick={onConfirm}>
-              Delete
+              Supprimer
             </Button>
           </DialogClose>
         </DialogFooter>
