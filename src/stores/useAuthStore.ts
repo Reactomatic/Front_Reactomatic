@@ -21,19 +21,6 @@ const useAuthStore = create((set) => ({
    
     try {
       const response = await axios.post('/auth/register', { email, password, firstName, lastName });
-      const { user, token } = response.data;
-
-      set({
-        user,
-        token,
-        isAuthenticated: true,
-        isAdmin: user.role === 'admin',
-      });
-
-      // Stocker dans localStorage et cookies
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-      Cookies.set('token', token, { expires: 7 });  // Le token expire après 7 jours
 
       return { status: response.status, data: response.data };
     } catch (error: any) {
