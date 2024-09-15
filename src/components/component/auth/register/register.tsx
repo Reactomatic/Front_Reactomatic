@@ -54,11 +54,11 @@ export function Register() {
     console.log(result)
     if (result.status === 201) {
       toast({
-        title: "Bienvenue " + data.firstName + " !",
-        description: "Tu vas être redirigé.",
+        title: "Salut " + data.firstName + " !",
+        description: "Tu peux désormais te connecter à ton compte.",
       });
 
-      router.push('/')
+      router.push('/login')
     } else if (result.status === 400) {
       toast({
         title: "Erreur d'inscription",
