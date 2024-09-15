@@ -96,6 +96,8 @@ export default function ProfileComponent() {
   const handleDelete = async () => {
     try {
       await deleteUser(userData.id);
+      await logout();
+      router.push('/')
       toast({
         title: "Votre compte utilisateur à été détruit",
         description: 'Réssayer plus tard.',
