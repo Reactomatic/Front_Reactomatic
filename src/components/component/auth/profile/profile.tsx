@@ -34,23 +34,25 @@ export default function ProfileComponent() {
     picture: string;
   }
 
+  const fetchProfileData = async () => {
+    try {
+      setLoading(true);
+      const data = await fetchUser(user.id);
+      console.log(user)
+      setUserData(user);
+    } catch (error) {
+      toast({
+        title: "Impossible d'effectuer cette action",
+        description: 'Réssayer plus tard.',
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchProfileData = async () => {
-      try {
-        setLoading(true);
-        const data = await fetchUser(user.id);
-        console.log(user)
-        setUserData(user);
-      } catch (error) {
-        toast({
-          title: "Impossible d'effectuer cette action",
-          description: 'Réssayer plus tard.',
-          variant: "destructive",
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
+
     fetchProfileData();
   }, [fetchUser]);
 
@@ -59,10 +61,11 @@ export default function ProfileComponent() {
     try {
       await updateUser(userData);
       toast({
-        title: "Votre compte utilisateur à été détruit",
+        title: "Votre compte utilisateur à été mise à jour",
         description: 'Réssayer plus tard.',
         variant: "destructive",
       });
+      await fetchProfileData()
     } catch (error) {
       toast({
         title: "Impossible d'effectuer cette action",

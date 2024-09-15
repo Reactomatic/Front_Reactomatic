@@ -1,19 +1,19 @@
 "use client";
 
 import {
-    IconExchange,
-    IconHome,
-    IconLayoutList,
-    IconMoonStars,
-    IconNewSection, IconQuestionMark,
-    IconUser,
+  IconExchange,
+  IconHome,
+  IconLayoutList,
+  IconMoonStars,
+  IconNewSection, IconQuestionMark,
+  IconUser,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Amazon from "@/assets/images/amazon-removebg-preview.png";
 import useThemeStore from "@/stores/useThemeStore";
 
 export const Dock = () => {
-  const {toggleDarkMode } = useThemeStore();
+  const { toggleDarkMode } = useThemeStore();
 
   const links = [
     {
@@ -50,16 +50,16 @@ export const Dock = () => {
       href: "#",
     },
     {
-      title: "A Propos",
+      title: "À Propos",
       icon: (
-          <IconQuestionMark className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconQuestionMark className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "/about",
     },
     {
       title: "Connexion - Inscription",
       icon: (
-          <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "/login",
     },

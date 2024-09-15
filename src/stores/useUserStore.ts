@@ -7,7 +7,7 @@ const useUserStore = create(() => ({
   // READ ALL
   fetchUsers: async () => {
     try {
-      const response = await axios.get('/users');
+      const response = await axios.get('/users/');
 
       return { status: response.status, data: response.data };
     } catch (error: any) {

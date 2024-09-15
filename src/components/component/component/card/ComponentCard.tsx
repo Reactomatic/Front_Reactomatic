@@ -64,10 +64,10 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                         <span className="font-semibold col-span-2 text-md dark:text-white">{Math.round(priceData.price)}€</span>
                     ) : (
                         <span className="font-semibold col-span-2 text-md text-red-600 dark:text-red-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"
-                             className="lucide lucide-x mr-4 w-5 h-5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                    </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"
+                                className="lucide lucide-x mr-4 w-5 h-5"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                        </span>
                     )}
                 </a>
             );
@@ -112,7 +112,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                     <p className="text-sm text-gray-500 dark:text-neutral-400 pt-2 whitespace-nowrap overflow-hidden">
                         {selectedComponent?.metadata?.slice(0, 4).map((meta, index) => (
                             <span key={index}>
-                                {meta.key}: {meta.value}
+                                {meta.label}: {meta.value}
                                 {index < 3 && ' '}
                             </span>
                         ))}

@@ -74,6 +74,7 @@ export type Config = {
 export interface Metadata {
   key: string;
   value: any;
+  label: string;
 }
 
 // PriceByRetailer type
