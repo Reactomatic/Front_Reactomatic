@@ -110,6 +110,17 @@ const useAuthStore = create((set) => ({
       // Optionnel : faire un appel API pour récupérer les infos utilisateur ici si nécessaire
     }
   },
+
+  sendSupportEmail: async (lastName: string, firstName: string, email: string, message: string) => {
+    try {
+      const response = await axios.post('/auth/support-email', { lastName, firstName, email, message });
+
+      return { status: response.status, data: response.data };
+    } catch (error: any) {
+      console.error('Reset password failed:', error);
+      return { status: error.response.status, message: error.response.data.message };
+    }
+  }
 }));
 
 export default useAuthStore;
