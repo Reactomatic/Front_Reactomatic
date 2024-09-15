@@ -9,16 +9,17 @@ export const EditableTitle = () => {
     const { title, setTitle } = useConfig();
     const { toast } = useToast()
     const [isEditing, setIsEditing] = useState(false);
+    const [localTitle, setLocalTitle] = useState(title)
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value.length <= 25) {
-            setTitle(e.target.value);
+            setLocalTitle(e.target.value);
         }
     };
 
     const handleSave = () => {
         setIsEditing(false);
-        setTitle(title);
+        setTitle(localTitle);
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -35,7 +36,7 @@ export const EditableTitle = () => {
             ) : (
                 <input
                     type="text"
-                    value={title}
+                    value={localTitle}
                     onChange={handleTitleChange}
                     onKeyDown={handleKeyPress}
                     className="text-2xl font-bold border-b border-neutral-200 focus:outline-none focus:border-neutral-200 w-full dark:bg-background"
