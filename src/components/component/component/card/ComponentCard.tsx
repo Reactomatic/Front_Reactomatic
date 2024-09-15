@@ -50,15 +50,6 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                             alt="LDLC Logo"
                             className="pr-1"
                         />
-                    ) : retailer === "Cybertek" ? (
-                        <Image
-                            priority
-                            src={Cybertek}
-                            height={25}
-                            width={25}
-                            alt="Cybertek Logo"
-                            className="pr-1"
-                        />
                     ) : null}
 
                     {priceData ? (
@@ -149,7 +140,6 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
     );
 };
 
-// Fonction pour afficher le nom en fonction du type
 export const getComponentTypeDisplayName = (type: ComponentType): string => {
     switch (type) {
         case "case_accessory":

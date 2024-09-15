@@ -50,7 +50,6 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
     const { config } = useConfig();
 
 
-    // const components = componentsData[type as keyof typeof componentsData] as ComponentData[] || [];
 
     useEffect(() => {
         handleFetchComponent();
@@ -170,7 +169,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                     </svg>
                 </Button>
 
-                <h2 className="text-2xl font-bold mb-4 capitalize">{type}</h2>
+                <h2 className="text-2xl font-bold mb-4 capitalize">{getComponentTypeDisplayName(type)}</h2>
 
                 <div className="flex items-center space-x-2">
                     <Popover.Root>
@@ -259,4 +258,61 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
             </div>
         </div>
     );
+};
+
+export const getComponentTypeDisplayName = (type: ComponentType): string => {
+    switch (type) {
+        case "case_accessory":
+            return "Accessoires";
+        case "case_fan":
+            return "Ventilateurs";
+        case "case":
+            return "Boitier";
+        case "cpu_cooler":
+            return "Ventirad";
+        case "cpu":
+            return "Processeur";
+        case "external_hard_drive":
+            return "Disque dur externe";
+        case "internal_hard_drive":
+            return "Disque dur interne";
+        case "fan_controller":
+            return "Fan Contrôleur";
+        case "headphones":
+            return "Casque";
+        case "keyboard":
+            return "Clavier";
+        case "memory":
+            return "Mémoire";
+        case "monitor":
+            return "Moniteur";
+        case "motherboard":
+            return "Carte mère";
+        case "mouse":
+            return "Souris";
+        case "optical_drive":
+            return "Lecteur optique";
+        case "os":
+            return "Système d'exploitation";
+        case "power_supply":
+            return "Alimentation";
+        case "sound_card":
+            return "Carte son";
+        case "speakers":
+            return "Haut-parleurs";
+        case "thermal_paste":
+            return "Pâte thermique";
+        case "ups":
+            return "Onduleur (UPS)";
+        case "video_card":
+            return "Carte graphique";
+        case "webcam":
+            return "Webcam";
+        case "wired_network_card":
+            return "Carte réseau filaire";
+        case "wireless_network_card":
+            return "Carte réseau sans fil";
+        default:
+            return "Composant inconnu";
+    }
 };
