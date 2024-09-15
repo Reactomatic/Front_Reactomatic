@@ -20,7 +20,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
     const selectedComponent = config[type as unknown as keyof typeof config];
 
     const renderProviderPrice = (pricesByRetailer: PriceByRetailer[]) => {
-        const retailers = ["Amazon FR", "Amazon DE", "LDLC", "Cybertek"];
+        const retailers = ["Amazon FR", "Amazon DE", "LDLC"];
 
         return retailers.map((retailer, index) => {
             const priceData = pricesByRetailer.find((p) => p.retailer === retailer);
