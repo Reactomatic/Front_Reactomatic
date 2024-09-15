@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { ResetPassword } from "@/components/component/auth/forgotPassword/fortgotPassword";
+import { ResetPassword } from "@/components/component/auth/resetPassword/resetPassword";
 
 export default function LoginPage() {
   return (

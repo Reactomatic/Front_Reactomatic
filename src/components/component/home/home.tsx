@@ -24,19 +24,20 @@ To read more about using these font, please visit the Next.js documentation:
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
 import Link from "next/link"
-import {TextHoverEffect} from "@/components/ui/text-hover-effect";
-import {TimelineHome} from "@/components/component/timeline/TimeLineHome";
-import {FlipWordsHome} from "@/components/component/flipWordHome/FlipWordHome";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { TimelineHome } from "@/components/component/timeline/TimeLineHome";
+import { FlipWordsHome } from "@/components/component/flipWordHome/FlipWordHome";
 
 export function Home() {
   return (
     <div className="flex flex-col">
       <main className="">
-          <div className="h-screen flex items-center justify-center">
-            <TextHoverEffect text="Reactomatic"/>
-          </div>
-          <TimelineHome/>
-          <FlipWordsHome/>
+        <div className="h-screen flex items-center justify-center">
+          <TextHoverEffect text="Reactomatic" />
+        </div>
+        <TimelineHome />
+        <FlipWordsHome />
+
       </main>
     </div>
   )
