@@ -39,6 +39,7 @@ export default function ProfileComponent() {
       try {
         setLoading(true);
         const data = await fetchUser(user.id);
+        console.log(user)
         setUserData(user);
       } catch (error) {
         toast({

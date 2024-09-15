@@ -6,11 +6,17 @@ const localUser: any = typeof window !== 'undefined' ? localStorage.getItem('use
 const localToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
 const useAuthStore = create((set) => ({
-  user: localUser || null,
+  user: localUser ? JSON.parse(localUser) : null,
   token: localToken || null as string | null,
   isAuthenticated: localUser != undefined || false as boolean,
-  isAdmin: (localUser && localUser.role === 'admin') as boolean,
-  
+  isAdmin: (localUser && JSON.parse(localUser).role === 'admin') as boolean,
+  // isAdmin: () => {
+  //   console.log('TEST')
+  //   console.log(JSON.parse(localUser))
+  //   console.log(JSON.parse(localUser).role)
+  //   return false
+  // }, 
+
   register: async (email: string, password: string, firstName: string, lastName: string) => {
    
     try {
@@ -26,7 +32,7 @@ const useAuthStore = create((set) => ({
 
       // Stocker dans localStorage et cookies
       localStorage.setItem('token', token);
-      localStorage.setItem('user', user);
+      localStorage.setItem('user', JSON.parse(user));
       Cookies.set('token', token, { expires: 7 });  // Le token expire après 7 jours
 
       return { status: response.status, data: response.data };
@@ -50,7 +56,9 @@ const useAuthStore = create((set) => ({
 
       // Stocker dans localStorage et cookies
       localStorage.setItem('token', access_token);
-      localStorage.setItem('user', user);
+      console.log(typeof(user))
+      console.log(JSON.stringify(user))
+      localStorage.setItem('user', JSON.stringify(user));
       Cookies.set('token', access_token, { expires: 7 });  // Le token expire après 7 jours
 
       return { status: response.status, data: response.data };

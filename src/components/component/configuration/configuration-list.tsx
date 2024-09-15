@@ -18,41 +18,41 @@ export function ConfigurationList({ onConfigSelect }: ConfigurationListProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const { toast } = useToast();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true); // Début du chargement
-      try {
-        const configs = await fetchConfigurationsUser();
-        if (configs.status === 200) {
-          setConfigurations(configs.data || []); // Set state to avoid re-fetching
-        } else {
-          toast({
-            title: "Erreur lors de la récupérationd e vos configuration",
-            description: "",
-            variant: "destructive",
-          });
-        }
-      } catch (error) {
-        // Gestion d'erreur
-      } finally {
-        setLoading(false); // Fin du chargement
+  const fetchData = async () => {
+    setLoading(true); // Début du chargement
+    try {
+      const configs = await fetchConfigurationsUser();
+      if (configs.status === 200) {
+        setConfigurations(configs.data || []); // Set state to avoid re-fetching
+      } else {
+        toast({
+          title: "Erreur lors de la récupérationd e vos configuration",
+          description: "",
+          variant: "destructive",
+        });
       }
-    };
-
+    } catch (error) {
+      // Gestion d'erreur
+    } finally {
+      setLoading(false); // Fin du chargement
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, []);
 
   const handleDelete = async (id: string) => {
     const result = await deleteConfiguration(id);
-    if (result.status === 201) {
+    if (result.status === 200) {
+      fetchData()
       toast({
-        title: "Configuration commencée !",
-        description: "Bon courage dans ta quête du PC parfait !",
+        title: "Configuration supprimé !",
+        description: "Elle a maintenant disparu !",
       });
 
     } else if (result.status === 400) {
       toast({
-        title: "Erreur dans la création",
+        title: "Erreur dans la suppretion",
         description: result.message,
         variant: "destructive",
       });

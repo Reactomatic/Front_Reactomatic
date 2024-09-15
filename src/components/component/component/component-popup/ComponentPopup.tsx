@@ -116,7 +116,6 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                 } else {
                     const componentsFilteredByCompatibilities = componentsFiltered.filter((component: ComponentData) => {
                         return Object.entries(requirements).every(([composantType, metadataKey]) => {
-//                             console.log("composantType", composantType);
                             const componentType = composantType as ComponentType;
 
                             const selectedComponent = config[componentType];
@@ -125,14 +124,8 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                             const configMetaRequired = selectedComponent.metadata?.find(el => el.key === metadataKey);
                             if (!configMetaRequired) return false;
 
-//                             console.log("metadataKey", metadataKey)
-//                             console.log("componentKey", componentType)
                             const componentMetaValue = component.metadata?.find(el => el.key === metadataKey);
                             if (!componentMetaValue) return false;
-
-//                             console.log(configMetaRequired.value)
-//                             console.log(componentMetaValue.value)
-//                             console.log(configMetaRequired.value === componentMetaValue.value)
 
                             return configMetaRequired.value === componentMetaValue.value;
                         });
