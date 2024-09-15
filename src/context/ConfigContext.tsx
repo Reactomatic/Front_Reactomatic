@@ -95,10 +95,15 @@ export const ConfigProvider: React.FC<{ id: string | null; children: React.React
     const setTitle = (newTitle: any) => {
         setStateTitle(newTitle)
         if (id) {
-            if (loading == false)
+            if (loading == false) {
                 handleUpdateConfig();
-        }
-        else {
+                toast({
+                    title: "Configuration Sauvegardé !",
+                    description: "Tu retrouveras ta configuration dans le même état",
+                });
+            }
+
+        } else {
             toast({
                 title: "Sauvegarde impossible",
                 description: "Tu dois te connecter à Reactomatic pour sauvegarder ta config.",

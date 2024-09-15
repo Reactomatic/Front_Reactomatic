@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ComponentType, ComponentData, componentSchemas, configRequirements } from "@/types/types";
+import { ComponentType, ComponentData, componentSchemas, configRequirements, keyLabels } from "@/types/types";
 import { Button } from "@/components/ui/button";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import * as Popover from "@radix-ui/react-popover";
@@ -23,7 +23,7 @@ const ComponentHoverPreview: React.FC<{ component: ComponentData }> = ({ compone
         <div className="text-sm mt-2">
             {component?.metadata?.map((meta, index) => (
                 <p key={index}>
-                    <strong>{meta.label}:</strong> {meta.value}
+                    <strong>{keyLabels[meta.key]}:</strong> {meta.value}
                 </p>
             ))}
         </div>
@@ -235,7 +235,7 @@ export const ComponentPopup: React.FC<ComponentPopupProps> = ({ type, onClose, o
                                     <p className="text-sm text-gray-500 dark:text-neutral-400 pt-2 whitespace-nowrap overflow-hidden">
                                         {component?.metadata?.slice(0, 3).map((meta, index) => (
                                             <span key={index}>
-                                                {meta.label}: {meta.value}{index < 3 && ' '}
+                                                {keyLabels[meta.key]}: {meta.value}{index < 3 && ' '}
                                             </span>))}
                                     </p>
                                 </div>

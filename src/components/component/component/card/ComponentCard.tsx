@@ -6,6 +6,7 @@ import {
     ComponentType,
     ComponentData,
     PriceByRetailer,
+    keyLabels
 } from "@/types/types";
 import Amazon from '@/assets/images/Amazon_Symbol_15.svg';
 import Ldlc from '@/assets/images/ldlc-removebg-preview.png';
@@ -112,7 +113,7 @@ export const ComponentCard: React.FC<{ type: ComponentType }> = ({ type }) => {
                     <p className="text-sm text-gray-500 dark:text-neutral-400 pt-2 whitespace-nowrap overflow-hidden">
                         {selectedComponent?.metadata?.slice(0, 4).map((meta, index) => (
                             <span key={index}>
-                                {meta.label}: {meta.value}
+                                {keyLabels[meta.key]}: {meta.value}
                                 {index < 3 && ' '}
                             </span>
                         ))}

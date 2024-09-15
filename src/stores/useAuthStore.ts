@@ -32,7 +32,7 @@ const useAuthStore = create((set) => ({
 
       // Stocker dans localStorage et cookies
       localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.parse(user));
+      localStorage.setItem('user', JSON.stringify(user));
       Cookies.set('token', token, { expires: 7 });  // Le token expire après 7 jours
 
       return { status: response.status, data: response.data };
@@ -56,8 +56,6 @@ const useAuthStore = create((set) => ({
 
       // Stocker dans localStorage et cookies
       localStorage.setItem('token', access_token);
-      console.log(typeof(user))
-      console.log(JSON.stringify(user))
       localStorage.setItem('user', JSON.stringify(user));
       Cookies.set('token', access_token, { expires: 7 });  // Le token expire après 7 jours
 

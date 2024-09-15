@@ -19,10 +19,6 @@ export const EditableTitle = () => {
     const handleSave = () => {
         setIsEditing(false);
         setTitle(title);
-        toast({
-            title: "Configuration Sauvegardé !",
-            description: "Tu retrouveras ta configuration dans le même état",
-        });
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {

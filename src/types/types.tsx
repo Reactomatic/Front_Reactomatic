@@ -74,7 +74,6 @@ export type Config = {
 export interface Metadata {
   key: string;
   value: any;
-  label: string;
 }
 
 // PriceByRetailer type
@@ -140,6 +139,53 @@ export const configRequirements: Record<ComponentType, Partial<Record<ComponentT
 };
 
 
+// Définir l'objet keyLabels
+export const keyLabels: Record<string, string> = {
+  compatibility: "Compatibilité",
+  material: "Matériau",
+  size: "Taille (mm)",
+  rpm: "Tours par minute (RPM)",
+  airflow: "Flux d'air (CFM)",
+  formFactor: "Format",
+  numberOfBays: "Nombre de Baies",
+  coolerType: "Type de Refroidisseur",
+  fanSize: "Taille du Ventilateur (mm)",
+  noiseLevel: "Niveau Sonore (dB)",
+  cores: "Cœurs",
+  threads: "Threads",
+  baseClock: "Fréquence de Base (GHz)",
+  boostClock: "Fréquence Boost (GHz)",
+  tdp: "TDP (W)",
+  socket: "Socket",
+  capacity: "Capacité (Go)",
+  interface: "Interface",
+  channels: "Nombre de Canaux",
+  controlType: "Type de Contrôle",
+  type: "Type",
+  frequencyResponse: "Réponse en Fréquence (Hz)",
+  impedance: "Impédance (Ohms)",
+  switchType: "Type de Switch",
+  layout: "Disposition",
+  backlight: "Rétroéclairage",
+  speed: "Vitesse (MHz)",
+  memoryType: "Type de mémoire",
+  resolution: "Résolution",
+  refreshRate: "Taux de Rafraîchissement (Hz)",
+  chipset: "Chipset",
+  dpi: "DPI",
+  sensorType: "Type de Capteur",
+  version: "Version",
+  licenseType: "Type de Licence",
+  wattage: "Puissance (W)",
+  efficiencyRating: "Indice d'Efficacité",
+  modular: "Modulaire",
+  thermalConductivity: "Conductivité Thermique (W/mK)",
+  batteryRuntime: "Autonomie de Batterie (min)",
+  vram: "VRAM (Go)",
+  cudaCores: "Cœurs CUDA",
+  frameRate: "Fréquence d'Images (FPS)",
+  wifiStandard: "Norme Wi-Fi",
+};
 
 export const componentSchemas: Record<ComponentType, ComponentSchema> = {
   case_accessory: {

@@ -174,7 +174,7 @@ export default function ProfileComponent() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p>Card content</p>
+                    <img src="https://img.freepik.com/photos-gratuite/vue-dessus-du-concept-noix-espace-copie_23-2148693980.jpg?size=626&ext=jpg"></img>
                   </CardContent>
                 </Card>
               )}
