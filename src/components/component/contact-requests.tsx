@@ -57,9 +57,9 @@ export default function Component() {
 
   return (
     <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-6">Contact Requests</h1>
+      <h1 className="text-3xl font-bold mb-6">Contact</h1>
       {contactRequests.length === 0 ? (
-        <p>No contact requests available.</p>
+        <p>Pas de demande de conact.</p>
       ) : (
         <ScrollArea className="h-[600px] rounded-md border">
           <div className="p-4 grid gap-4">
