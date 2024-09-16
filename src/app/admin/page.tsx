@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Users, Layers } from "lucide-react"
+import { Users, Layers, ContactIcon } from "lucide-react"
 
 export default function AdminSelectionPage() {
   return (
@@ -12,7 +12,7 @@ export default function AdminSelectionPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <Users className="h-5 w-5" />
-              User Admin
+              Interface Utilisateur Admin
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-grow">
@@ -20,7 +20,7 @@ export default function AdminSelectionPage() {
           </CardContent>
           <CardFooter>
             <Link href="/admin/users" passHref className="w-full">
-              <Button className="w-full">User Admin</Button>
+              <Button className="w-full">Utilisateur Admin</Button>
             </Link>
           </CardFooter>
         </Card>
@@ -29,7 +29,7 @@ export default function AdminSelectionPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <Layers className="h-5 w-5" />
-              Component Admin
+              Interface Component Admin
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-grow">
@@ -37,7 +37,24 @@ export default function AdminSelectionPage() {
           </CardContent>
           <CardFooter>
             <Link href="/admin/components" passHref className="w-full">
-              <Button className="w-full">Component Admin</Button>
+              <Button className="w-full">Admin Component</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+        <Card className="w-full sm:w-64 flex flex-col">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <ContactIcon className="h-5 w-5" />
+              Contact boite
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex-grow">
+            <p className="text-sm text-muted-foreground">Liste des messages reçu via le formulaire de contact</p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/admin/contacts" passHref className="w-full">
+              <Button className="w-full">Contact Box</Button>
             </Link>
           </CardFooter>
         </Card>
