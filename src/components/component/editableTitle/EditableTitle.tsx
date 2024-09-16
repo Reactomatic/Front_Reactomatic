@@ -18,8 +18,8 @@ export const EditableTitle = () => {
     };
 
     const handleSave = () => {
-        setIsEditing(false);
         setTitle(localTitle);
+        setIsEditing(false);
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -27,6 +27,11 @@ export const EditableTitle = () => {
             setIsEditing(false);
         }
     };
+
+    const foncyionDeMerde = () => {
+        setIsEditing(true)
+        setLocalTitle(title)
+    }
 
     return (
         <div
@@ -43,7 +48,7 @@ export const EditableTitle = () => {
                 />
             )}
             <button
-                onClick={() => (isEditing ? setIsEditing(false) : setIsEditing(true))}
+                onClick={() => (isEditing ? setIsEditing(false) : foncyionDeMerde())}
                 className="p-2"
             >
                 <Edit3

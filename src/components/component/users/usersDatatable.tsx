@@ -20,7 +20,7 @@ type User = {
 export default function UserDataTable() {
   const [search, setSearch] = useState("")
   const [sortConfig, setSortConfig] = useState<{ key: keyof User; direction: 'asc' | 'desc' }>({ key: 'id', direction: 'asc' })
-  const { fetchUsers } = useUserStore()
+  const { fetchUsers, updateUser } = useUserStore()
   const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true) // State to track loading status
   const { toast } = useToast();
@@ -53,6 +53,26 @@ export default function UserDataTable() {
       setLoading(false) // Stop loading when data is fetched or on error
     }
   };
+
+  const hadleUpdateState = async (user: User) => {
+    const newUser: User = user
+    newUser.isActive = !user.isActive
+    const result = await updateUser(newUser)
+
+    if (result.status === 200) {
+      await handleFetchConfig()
+      toast({
+        title: "L'utilisateur à été mise a jour !",
+        description: "Le statut de l'utilisateur à bien été mise à jour.",
+      });
+    } else {
+      toast({
+        title: "Erreur de chargement",
+        description: "Impossible de charger les données. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    }
+  }
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)
 
@@ -120,6 +140,13 @@ export default function UserDataTable() {
                 <TableCell>{user.lastName}</TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.role}</TableCell>
+                <TableCell>
+                  {user.isActive ? (
+                    <Button className="hover:bg-transparent red" onClick={() => { hadleUpdateState(user) }}>Désactiver</Button>
+                  ) : (
+                    <Button className="hover:bg-transparent green" onClick={() => { hadleUpdateState(user) }}>Activer</Button>
+                  )}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

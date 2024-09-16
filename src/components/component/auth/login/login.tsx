@@ -59,8 +59,21 @@ export function Login() {
         description: result.message,
         variant: "destructive",
       });
+    } else if (result.status === 418) {
+      toast({
+        title: "Votre compte à été désactivé",
+        description: "Contacter le support pour plus d'information",
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Erreur d'inscription",
+        description: result.message,
+        variant: "destructive",
+      });
     }
   }
+
 
   return (
     <div className="flex min-h-[80dvh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">

@@ -48,11 +48,11 @@ export const ConfigProvider: React.FC<{ id: string | null; children: React.React
             .map((component) => component!.id);
     };
 
-    const handleUpdateConfig = async () => {
+    const handleUpdateConfig = async (titre: string | null) => {
         const configComponentIds = getConfigComponentIds();
 
         try {
-            const result = await updateConfigurationUser(id, title, configComponentIds);
+            const result = await updateConfigurationUser(id, titre ? titre : title, configComponentIds);
             if (result.status !== 200) {
                 toast({
                     title: "Erreur de chargement",
@@ -77,7 +77,7 @@ export const ConfigProvider: React.FC<{ id: string | null; children: React.React
         setConfig(prev => ({ ...prev, [type]: component }));
         if (id)
             if (loading == false)
-                handleUpdateConfig();
+                handleUpdateConfig(null);
     };
 
     const getTotalPrice = () => {
@@ -96,9 +96,9 @@ export const ConfigProvider: React.FC<{ id: string | null; children: React.React
         setStateTitle(newTitle)
         if (id) {
             if (loading == false) {
-                handleUpdateConfig();
+                handleUpdateConfig(newTitle);
                 toast({
-                    title: "Configuration Sauvegardé !",
+                    title: "Configuration Sauvegardée !",
                     description: "Tu retrouveras ta configuration dans le même état",
                 });
             }
