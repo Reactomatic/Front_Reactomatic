@@ -84,7 +84,7 @@ export function TimelineHome() {
             content: (
                 <div>
                     <p className="text-neutral-800 dark:text-neutral-200 text-xl font-normal mb-4">
-                        Une fois vos composants selectionnés, il ne vous reste plus qu'a vous rendre chez le fournisseur le moins cher
+                        Une fois vos composants selectionnés, il ne vous reste plus qu'à vous rendre chez le fournisseur le moins cher
                     </p>
                         <OrbitingCirclesDemo/>
                 </div>
