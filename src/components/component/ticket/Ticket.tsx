@@ -35,7 +35,7 @@ export default function Ticket() {
                 <div className="border-t border-b border-gray-300 py-2 max-h-60 overflow-auto">
                     <div className="flex justify-between font-bold">
                         <span>Description</span>
-                        <span>Price</span>
+                        <span>Prix</span>
                     </div>
                     {selectedItems.map((item, index) => (
                         <div key={index} className="flex justify-between space-x-2">
@@ -45,7 +45,7 @@ export default function Ticket() {
                     ))}
                 </div>
                 <div className="flex justify-between font-bold">
-                    <span>Tax</span>
+                    <span>Taxe</span>
                     <span></span>
                 </div>
                 <div className="flex justify-between font-bold">
@@ -54,7 +54,7 @@ export default function Ticket() {
                 </div>
             </CardContent>
             <CardFooter className="flex flex-col items-center space-y-4">
-                <div className="font-bold pt-10">THANK YOU</div>
+                <div className="font-bold pt-10">MERCI</div>
                 <div className="text-xs">{'*'.repeat(38)}</div>
                 <div className="w-full h-12 bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==')]"></div>
                 <div className="text-xs">123456778963578021</div>
