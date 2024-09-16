@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import useUserStore from "@/stores/useUserStore";
 import useAuthStore from "@/stores/useAuthStore";
 import { useRouter } from 'next/navigation'
-
 import { useToast } from "@/components/ui/use-toast";
 
 
@@ -145,8 +144,7 @@ export default function ProfileComponent() {
                     onClick={() => setActiveSection("disconnectProfile")}
                     className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                   >
-                    <TrashIcon className="h-5 w-5" />
-                    Se déconnecter
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>                    Se déconnecter
                   </a>
                 </li>
                 <li>
@@ -155,7 +153,7 @@ export default function ProfileComponent() {
                     onClick={() => setActiveSection("removeProfile")}
                     className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                   >
-                    <TrashIcon className="h-5 w-5" />
+                    <TrashIcon className="h-7 w-7" />
                     Supprimer mon compte
                   </a>
                 </li>
@@ -175,9 +173,6 @@ export default function ProfileComponent() {
                       <div className="text-sm text-muted-foreground">Adresse email: {userData.email}</div>
                     </div>
                   </CardHeader>
-                  <CardContent>
-                    <img src="https://img.freepik.com/photos-gratuite/vue-dessus-du-concept-noix-espace-copie_23-2148693980.jpg?size=626&ext=jpg"></img>
-                  </CardContent>
                 </Card>
               )}
 
