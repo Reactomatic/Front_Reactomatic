@@ -18,7 +18,7 @@ export function TimelineHome() {
             content: (
                 <div>
                     <p className="text-neutral-800 dark:text-neutral-200 text-xl font-normal mb-8">
-                        Selectionner les composants que vous recherchez
+                        Selectionner les composants que vous recherchez, l'outil vous proposera des composants compatibles uniquement
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                         <Image
