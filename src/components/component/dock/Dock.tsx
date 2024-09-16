@@ -39,17 +39,25 @@ export const Dock = () => {
       href: "/configuration",
     },
 
-    // Logo, actualise la page pour l'instant TODO
+    {
+      title: "Contact",
+      icon: (
+          <IconLetterC className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/contact",
+    },
+
+    // Logo, actualise la page pour l'instant
     {
       title: "Reactomatic",
       icon: (
-        <Image
-          src={Logo}
-          width={25}
-          height={25}
-          alt="Aceternity Logo"
-          className={"hover:animate-spin duration-100"}
-        />
+          <Image
+              src={Logo}
+              width={25}
+              height={25}
+              alt="Aceternity Logo"
+              className={"hover:animate-spin duration-100"}
+          />
       ),
       href: "#",
     },
@@ -58,18 +66,9 @@ export const Dock = () => {
     {
       title: "À Propos",
       icon: (
-        <IconQuestionMark className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+          <IconQuestionMark className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "/about",
-    },
-
-    // About
-    {
-      title: "Contact",
-      icon: (
-        <IconLetterC className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/contact",
     },
 
     // Profile
