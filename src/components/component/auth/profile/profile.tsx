@@ -37,8 +37,8 @@ export default function ProfileComponent() {
     try {
       setLoading(true);
       const data = await fetchUser(user.id);
-      console.log(user)
-      setUserData(user);
+      console.log(data.data)
+      setUserData(data.data);
     } catch (error) {
       toast({
         title: "Impossible d'effectuer cette action",
@@ -61,8 +61,7 @@ export default function ProfileComponent() {
       await updateUser(userData);
       toast({
         title: "Votre compte utilisateur à été mise à jour",
-        description: 'Réssayer plus tard.',
-        variant: "destructive",
+        description: 'Vos modifications sont à jour.',
       });
       await fetchProfileData()
     } catch (error) {
@@ -144,7 +143,7 @@ export default function ProfileComponent() {
                     onClick={() => setActiveSection("disconnectProfile")}
                     className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>                    Se déconnecter
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></svg>                    Se déconnecter
                   </a>
                 </li>
                 <li>
@@ -221,13 +220,13 @@ export default function ProfileComponent() {
                 <div className="rounded-lg border bg-background p-4 md:p-6">
                   <h3 className="text-lg font-medium">Se déconnecter de mon compte</h3>
                   <div className="mt-4 grid gap-4">
-                    <p>Je souhaite mon déconncter de mon compte.</p>
+                    <p>Je souhaite me déconncter de mon compte.</p>
                     <div className="flex justify-end gap-2">
                       <Button variant="outline" onClick={() => setActiveSection("profile")}>
                         Non
                       </Button>
                       <Button variant="destructive" onClick={handleDisconnected} disabled={loading}>
-                        Se déconncter
+                        Se déconnecter
                       </Button>
                     </div>
                   </div>
