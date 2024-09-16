@@ -111,12 +111,12 @@ export default function ProfileComponent() {
   };
 
   return (
-    <div className="flex flex-col min-h-[100dvh]">
-      <div className="flex-1 bg-muted">
+    <div className="flex flex-col w-full h-screen justify-center items-center bg-background">
+      <div className="">
         <div className="container py-6 md:py-10">
-          <div className="grid grid-cols-[200px_1fr] gap-6 md:gap-10">
-            <nav className="rounded-lg border bg-background p-4 md:p-6">
-              <ul className="grid gap-2">
+          <div className="grid grid-row gap-6 md:gap-10">
+            <nav className="shadow-md rounded-lg border bg-background p-4 md:p-6">
+              <ul className="grid grid-cols-4 gap-2">
                 <li>
                   <a
                     href="#"
@@ -143,7 +143,7 @@ export default function ProfileComponent() {
                     onClick={() => setActiveSection("disconnectProfile")}
                     className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></svg>                    Se déconnecter
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" x2="9" y1="12" y2="12" /></svg>                    Se déconnecter
                   </a>
                 </li>
                 <li>
@@ -159,7 +159,7 @@ export default function ProfileComponent() {
               </ul>
             </nav>
 
-            <div className="grid gap-6">
+            <div className="grid gap-6 shadow-md">
               {activeSection === "profile" && (
                 <Card>
                   <CardHeader className="flex items-center gap-4">
@@ -258,7 +258,7 @@ export default function ProfileComponent() {
 }
 
 
-function FilePenIcon(props) {
+function FilePenIcon(props: any) {
   return (
     <svg
       {...props}
@@ -280,7 +280,7 @@ function FilePenIcon(props) {
 }
 
 
-function HeartIcon(props) {
+function HeartIcon(props: any) {
   return (
     <svg
       {...props}
@@ -300,7 +300,7 @@ function HeartIcon(props) {
 }
 
 
-function InfoIcon(props) {
+function InfoIcon(props: any) {
   return (
     <svg
       {...props}
@@ -322,7 +322,7 @@ function InfoIcon(props) {
 }
 
 
-function LayoutGridIcon(props) {
+function LayoutGridIcon(props: any) {
   return (
     <svg
       {...props}
@@ -345,7 +345,7 @@ function LayoutGridIcon(props) {
 }
 
 
-function MessageCircleIcon(props) {
+function MessageCircleIcon(props: any) {
   return (
     <svg
       {...props}
@@ -365,7 +365,7 @@ function MessageCircleIcon(props) {
 }
 
 
-function MoveHorizontalIcon(props) {
+function MoveHorizontalIcon(props: any) {
   return (
     <svg
       {...props}
@@ -387,7 +387,7 @@ function MoveHorizontalIcon(props) {
 }
 
 
-function ShareIcon(props) {
+function ShareIcon(props: any) {
   return (
     <svg
       {...props}
@@ -409,7 +409,7 @@ function ShareIcon(props) {
 }
 
 
-function TrashIcon(props) {
+function TrashIcon(props: any) {
   return (
     <svg
       {...props}
