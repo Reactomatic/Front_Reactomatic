@@ -12,7 +12,7 @@ export default function AdminSelectionPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <Users className="h-5 w-5" />
-              Interface Utilisateur Admin
+              Liste utilisateur
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-grow">
@@ -20,7 +20,7 @@ export default function AdminSelectionPage() {
           </CardContent>
           <CardFooter>
             <Link href="/admin/users" passHref className="w-full">
-              <Button className="w-full">Utilisateur Admin</Button>
+              <Button className="w-full">Voir</Button>
             </Link>
           </CardFooter>
         </Card>
@@ -29,7 +29,7 @@ export default function AdminSelectionPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <Layers className="h-5 w-5" />
-              Interface Component Admin
+              Liste composent
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-grow">
@@ -37,7 +37,7 @@ export default function AdminSelectionPage() {
           </CardContent>
           <CardFooter>
             <Link href="/admin/components" passHref className="w-full">
-              <Button className="w-full">Admin Component</Button>
+              <Button className="w-full">Voir</Button>
             </Link>
           </CardFooter>
         </Card>
@@ -46,7 +46,7 @@ export default function AdminSelectionPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <ContactIcon className="h-5 w-5" />
-              Contact boite
+              Demande de Contact
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-grow">
@@ -54,7 +54,7 @@ export default function AdminSelectionPage() {
           </CardContent>
           <CardFooter>
             <Link href="/admin/contacts" passHref className="w-full">
-              <Button className="w-full">Contact Box</Button>
+              <Button className="w-full">Voir</Button>
             </Link>
           </CardFooter>
         </Card>
